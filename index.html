@@ -1,0 +1,1929 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A plain-English directory of free focus and ADHD-help tools: distraction blockers, pomodoro and gentle timers, body doubling, text-to-speech readers, note capture, soundscapes, and browser calm-downs. No downloads bundled, no accounts, no affiliate links." />
+  <title>Free Focus Tools - a beginner-friendly directory</title>
+  <style>
+/* Free Focus Tools - single-file styles (inlined by scripts/build.js). */
+
+:root {
+  --bg: #faf7f0;
+  --surface: #fffdfa;
+  --ink: #26221b;
+  --muted: #5d564a;
+  --line: #e3dac9;
+  --accent: #a05a10;
+  --accent-ink: #ffffff;
+  --accent-soft: #f7efe2;
+  --chip-bg: #f4efe3;
+  --start-ink: #1f5c38;
+  --start-bg: #edf7ee;
+  --start-line: #a5d2ae;
+  --easy-ink: #1c4f85;
+  --easy-bg: #eaf3fc;
+  --easy-line: #aac7e8;
+  --practice-ink: #73470a;
+  --practice-bg: #fdf3e0;
+  --practice-line: #ebcf9b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17150f;
+    --surface: #201d15;
+    --ink: #ece5d8;
+    --muted: #a89f8f;
+    --line: #3a352a;
+    --accent: #e5a45c;
+    --accent-ink: #2b1a07;
+    --accent-soft: #2a2318;
+    --chip-bg: #2a261d;
+    --start-ink: #b2e2c0;
+    --start-bg: #142a1b;
+    --start-line: #2e5b3a;
+    --easy-ink: #b9d6f0;
+    --easy-bg: #16263c;
+    --easy-line: #2c4d77;
+    --practice-ink: #f0d59e;
+    --practice-bg: #2b2211;
+    --practice-line: #64512c;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.skip-link {
+  position: absolute;
+  left: -100vw;
+  top: 0;
+  z-index: 20;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 0.55rem 1rem;
+  border-radius: 0 0 10px 0;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.skip-link:focus { left: 0; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
+
+.site-header {
+  border-top: 4px solid var(--accent);
+  background: var(--surface);
+  padding: 1.6rem 1.2rem 1.3rem;
+  text-align: center;
+}
+
+.site-header .kicker {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.site-header h1 {
+  margin: 0.35rem 0 0.4rem;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+.site-header .tagline {
+  margin: 0 auto;
+  max-width: 46rem;
+  color: var(--muted);
+}
+
+.site-header .peers {
+  margin: 0.7rem auto 0;
+  max-width: 46rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+main {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 1.2rem 2.5rem;
+}
+
+.intro {
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  margin: 1.4rem 0;
+  font-size: 0.95rem;
+}
+
+.intro ol { margin: 0.4rem 0 0.5rem; padding-left: 1.4rem; }
+
+.intro .quiet { margin: 0; color: var(--muted); font-size: 0.85rem; }
+
+.noscript-note {
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.4rem;
+  align-items: flex-end;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  margin: 1.2rem 0 0.6rem;
+}
+
+.control-group { display: flex; flex-direction: column; gap: 0.3rem; }
+.control-grow { flex: 1 1 14rem; }
+
+.need-chips { border: 0; padding: 0; margin: 0; flex: 1 1 100%; }
+
+.need-chips legend {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0;
+  margin-bottom: 0.4rem;
+}
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+
+.chip-btn {
+  font: inherit;
+  font-size: 0.92rem;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  cursor: pointer;
+}
+
+.chip-btn:hover { border-color: var(--accent); }
+
+.chip-btn[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.controls label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.controls select,
+.controls input {
+  font: inherit;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 0.45rem 0.6rem;
+  min-width: 12rem;
+}
+
+.control-grow input { width: 100%; }
+
+.result-count { color: var(--muted); font-size: 0.9rem; margin: 0.2rem 0 0.9rem; }
+
+.category { margin: 1.7rem 0 1.9rem; }
+
+.category h2 {
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid var(--line);
+  padding-bottom: 0.3rem;
+}
+
+.category-note {
+  margin: 0.2rem 0 0.7rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+  gap: 1.1rem;
+  align-items: start;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: 0 1px 3px rgba(40, 33, 20, 0.07);
+}
+
+.card-head { display: flex; flex-direction: column; gap: 0.35rem; }
+
+.card-head h3 { margin: 0; font-size: 1.15rem; letter-spacing: -0.01em; }
+
+.chips { margin: 0; display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+.chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: var(--chip-bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+}
+
+.chip.verdict-start { background: var(--start-bg); color: var(--start-ink); border-color: var(--start-line); }
+.chip.verdict-easy { background: var(--easy-bg); color: var(--easy-ink); border-color: var(--easy-line); }
+.chip.verdict-practice { background: var(--practice-bg); color: var(--practice-ink); border-color: var(--practice-line); }
+
+.blurb { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+.does { margin: 0; font-size: 0.93rem; }
+
+.stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+@media (min-width: 60rem) {
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stats li:first-child { grid-column: 1 / -1; }
+}
+
+.stats .stat-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.stats b { font-weight: 600; }
+
+.verdict {
+  margin: 0;
+  border-radius: 10px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.88rem;
+}
+
+.verdict b { display: block; }
+.verdict span { opacity: 0.94; }
+
+.verdict.verdict-start { background: var(--start-bg); color: var(--start-ink); border: 1px solid var(--start-line); }
+.verdict.verdict-easy { background: var(--easy-bg); color: var(--easy-ink); border: 1px solid var(--easy-line); }
+.verdict.verdict-practice { background: var(--practice-bg); color: var(--practice-ink); border: 1px solid var(--practice-line); }
+
+.card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.7rem;
+  margin-top: auto;
+  font-size: 0.85rem;
+}
+
+.card-foot a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.card-foot a:hover,
+.card-foot a:focus-visible { text-decoration: underline; }
+
+.checked { color: var(--muted); font-size: 0.78rem; margin-left: auto; }
+
+.empty-state {
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  padding: 2.2rem 1.2rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  padding: 1.4rem 1.2rem 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.site-footer p { max-width: 44rem; margin: 0.4rem auto; }
+.site-footer b { color: var(--ink); }
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#app-root">Skip to the tool cards</a>
+
+  <header class="site-header">
+    <p class="kicker">A plain-English companion from dylanasdale.github.io</p>
+    <h1>Free Focus Tools</h1>
+    <p class="tagline">Free ways to guard your attention and make tasks easier to start: distraction blockers, pomodoro and gentle timers, body-doubling sessions, text-to-speech readers, note capture, soundscapes, and browser calm-downs. Pick what you need below, look for the green "Start here" verdict, and open the official link to get going.</p>
+    <p class="peers">Companion resource to the <b>Free Accessibility Tools Directory</b>, which covers free assistive software and built-in device settings (screen readers, magnifiers, dictation, captions); this directory covers the focus side of the same coin.</p>
+  </header>
+
+  <main>
+    <section class="intro" aria-label="How to use this directory">
+      <ol>
+        <li>Pick what you need below: procrastination, overwhelm, study, or chores.</li>
+        <li>Open the official link on a card and try the tool on exactly one real task today.</li>
+        <li>Keep whatever helps you. Everything here is free, so experimenting costs nothing.</li>
+      </ol>
+      <p class="quiet">Every card states what the tool does, why it is genuinely free (and what is not), links only to its official home, and shows the date it was last hand-checked - 2026-11-05 this pass, with the whole list scheduled for re-verification by 2027-02-05. Built-ins are the fastest wins because they are already on the device you own.</p>
+    </section>
+
+    <div id="app-root">
+      <noscript><p class="noscript-note">JavaScript is switched off, so the filters will not work - every card is listed below anyway, grouped by kind of help, and all links are plain HTML.</p></noscript>
+<section class="category" data-category="distraction-blockers"><h2>Distraction blockers</h2><p class="category-note">Put a wall between you and the sites and apps that swallow your afternoon - stronger than willpower, and free to try.</p><div class="card-grid"><article class="card" data-tool-id="cold-turkey-blocker"><header class="card-head"><h3>Cold Turkey Blocker (free version)</h3><p class="chips"><span class="chip verdict-chip verdict-start">Start here</span><span class="chip">Freeware</span></p></header><p class="blurb">Blocks whole sites and apps in one click, and lets itself be trusted: the free version never asks you to pay for the core job.</p><p class="does">Add the sites and applications that trap you to a block list, turn blocking on, and nothing gets through until you say so. The free tier blocks unlimited sites and apps for as long as you set it, and unlike a timer app it also stops the desktop apps - the games, the email client, the chat window.</p><p class="verdict verdict-start"><b>Start here</b><span>On Windows this is the strongest free block you can put between you and a bad habit - one lazy afternoon of setup buys weeks of quieter evenings if it clicks.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The free version is a full blocker, not a trial: unlimited blocks that last as long as you lock them for, with no expiry date and no nagging pop-ups. Schedules, usage reports, and blocking-resistance upgrades are clearly separated as paid extras on the official site; the core block job is free forever.</b></li><li><span class="stat-label">Works on</span><b>Windows PC, Mac</b></li><li><span class="stat-label">Honest limits</span><b>Windows and Mac; the free tier cannot pause active blocks or use schedules.</b></li></ul><footer class="card-foot"><a href="https://getcoldturkey.com/" target="_blank" rel="noopener noreferrer">Cold Turkey - official site and download</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="apple-screen-time"><header class="card-head"><h3>Screen Time (iPhone and iPad)</h3><p class="chips"><span class="chip verdict-chip verdict-start">Start here</span><span class="chip">Built in</span></p></header><p class="blurb">The blocker already inside your iPhone: daily app limits, scheduled downtime, and a passcode to protect you from yourself.</p><p class="does">Open Settings and find Screen Time. Set daily limits for any app (fifteen minutes of TikTok, not three hours), schedule &#39;downtime&#39; hours when only essential apps open, and lock the settings behind a passcode - ideally one held by a trusted person or one you genuinely do not remember. Limits sync across your Apple devices.</p><p class="verdict verdict-start"><b>Start here</b><span>The easiest first test on an iPhone: put a fifteen-minute daily limit on the two apps that steal your evenings, set the passcode, and see what the week feels like.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Built into every iPhone and iPad by Apple at no charge: nothing to download, no subscription, and no account beyond the Apple ID you already use. All of the useful features - app limits, downtime, the self-blocking passcode - are part of the free system.</b></li><li><span class="stat-label">Works on</span><b>iPhone / iPad</b></li><li><span class="stat-label">Honest limits</span><b>iOS and iPadOS; the same Screen Time settings exist on Mac.</b></li></ul><footer class="card-foot"><a href="https://support.apple.com/en-us/108806" target="_blank" rel="noopener noreferrer">Use Screen Time on your iPhone or iPad (Apple Support)</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="selfcontrol"><header class="card-head"><h3>SelfControl</h3><p class="chips"><span class="chip verdict-chip verdict-start">Start here</span><span class="chip">Open source</span></p></header><p class="blurb">A stubborn Mac blocker that keeps your time-wasting sites offline until the timer runs out, even if you delete the app first.</p><p class="does">Pick the sites that derail you, set a timer for as many hours as you need, and click Start. SelfControl blocks those sites - and anything pulling from the same servers - until the timer ends. There is no pause button, no restart trick, and uninstalling does not turn it off early, which is exactly why it works when willpower runs out.</p><p class="verdict verdict-start"><b>Start here</b><span>If your focus battle happens on a Mac, this is the quickest honest test of whether blocking actually helps: pick three sites, try ninety minutes, and see what your day becomes.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The source code is published openly for anyone to read and build, and the official site charges nothing for the app: no paid tier, no account, no license key. It is one independent developer&#39;s small, focused project offered to everyone for free.</b></li><li><span class="stat-label">Works on</span><b>Mac</b></li><li><span class="stat-label">Honest limits</span><b>Mac only; nothing for Windows or phones.</b></li><li><span class="stat-label">License</span><b>Free and open source (GPL)</b></li></ul><footer class="card-foot"><a href="https://selfcontrolapp.com/" target="_blank" rel="noopener noreferrer">SelfControl - official site and download</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="android-digital-wellbeing"><header class="card-head"><h3>Digital Wellbeing (Android)</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Built in</span></p></header><p class="blurb">Android&#39;s built-in dashboard for app time, with daily limits and a focus mode, already on your phone.</p><p class="does">Open Settings and search for &#39;Digital Wellbeing&#39;. The dashboard shows exactly how much time each app took today, daily timers grey out apps when their cut-off passes, and Focus mode temporarily switches off chosen distracting apps so the phone stays usable for maps, calls, and messages.</p><p class="verdict verdict-easy"><b>Easy win</b><span>It hides slightly differently on every brand of phone - search Settings for &#39;Digital Wellbeing&#39; and start with a single app timer on your worst offender.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Included by Google with Android 9 and newer at no charge: no install, no subscription, no ads. Many phone makers (Samsung, Pixel, and others) add their own extra wellbeing dashboards on top, also free.</b></li><li><span class="stat-label">Works on</span><b>Android phone</b></li><li><span class="stat-label">Honest limits</span><b>Android 9 and newer; where it lives varies by phone brand.</b></li></ul><footer class="card-foot"><a href="https://www.android.com/digital-wellbeing/" target="_blank" rel="noopener noreferrer">Digital Wellbeing - Android (Google)</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="leechblock-ng"><header class="card-head"><h3>LeechBlock NG</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Open source</span></p></header><p class="blurb">A free browser extension that decides exactly when each time-wasting site is allowed - up to thirty separate sets of rules.</p><p class="does">Install it in Firefox, Chrome, or Edge, list the sites that eat your afternoon, and choose the rules: blocked during work hours, allowed ten minutes per hour, or locked down on the spot. A password - or a random access code you never read - can slow you down in the weak moments when you would normally just unblock yourself.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Powerful, and it rewards fiddling if you let it - start with one block set covering the two sites you resent most, and grow from there only if you need to.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>LeechBlock NG is developed in public on GitHub and released under the Mozilla Public License 2.0, and the official site never asks for payment. The Firefox, Chrome, and Edge versions are all free, with no account and no premium tier hiding the good features.</b></li><li><span class="stat-label">Works on</span><b>Firefox browser, Chrome browser, Edge browser</b></li><li><span class="stat-label">Honest limits</span><b>Firefox, Chrome, Edge, and similar browsers; phones need a desktop-grade browser like Firefox for Android.</b></li><li><span class="stat-label">License</span><b>Mozilla Public License 2.0 (free and open source)</b></li></ul><footer class="card-foot"><a href="https://www.proginosko.com/leechblock/" target="_blank" rel="noopener noreferrer">LeechBlock - official site with install links</a><a href="https://github.com/proginosko/LeechBlockNG" target="_blank" rel="noopener noreferrer">LeechBlock NG source code on GitHub</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="stayfocusd"><header class="card-head"><h3>StayFocusd</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">Gives each distracting site a daily time budget, then quietly blocks it when your minutes run out.</p><p class="does">You set a daily limit for each time-sink site - say, ten minutes of social media - and StayFocusd counts down while you browse. When your budget is spent, that site greets you with a stern blocked page until tomorrow. The &#39;nuclear option&#39; flips it around and blocks everything except the short list you actually need for a task.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Set small budgets (ten minutes, not an hour) and remember the Blocked Sites page where you add and remove them - that is the whole tool.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>StayFocusd has been free in the Chrome Web Store for years, with no paid version and no account: the official site takes you straight to the install page. Nothing here is a trial that switches itself off - donations, not subscriptions, keep it going.</b></li><li><span class="stat-label">Works on</span><b>Chrome browser</b></li><li><span class="stat-label">Honest limits</span><b>Chrome and most Chromium browsers; nothing for phones.</b></li></ul><footer class="card-foot"><a href="https://stayfocusd.com/" target="_blank" rel="noopener noreferrer">StayFocusd - official site and Chrome install</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article></div></section><section class="category" data-category="focus-timers"><h2>Pomodoro and gentle timers</h2><p class="category-note">Give tasks a visible start line and finish line: classic 25-minute focus rounds, break reminders, and the humble phone timer trick.</p><div class="card-grid"><article class="card" data-tool-id="windows-focus-sessions"><header class="card-head"><h3>Focus sessions (Windows 11 Clock app)</h3><p class="chips"><span class="chip verdict-chip verdict-start">Start here</span><span class="chip">Built in</span></p></header><p class="blurb">A pomodoro-style focus feature already inside Windows 11&#39;s Clock app, complete with a daily streak.</p><p class="does">Open the Clock app that ships with Windows 11, choose Focus sessions, and set any length of time from fifteen minutes up. Windows silent-modes your notifications, counts down with a neat progress ring, and keeps a daily streak so motivation gets a small scoreboard. Connect Microsoft To Do (free account) if you want the timer tied to a task list, or Spotify (free tier) if you focus to music.</p><p class="verdict verdict-start"><b>Start here</b><span>If you work on a Windows 11 PC, this is already on your machine - search &#39;Clock&#39;, set thirty minutes, and let the streak counter do its quiet work.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Pre-installed with Windows 11 and updated free through the Microsoft Store; the focus sessions themselves need no subscription and no new account. The To Do and Spotify tie-ins simply use those services&#39; own free accounts.</b></li><li><span class="stat-label">Works on</span><b>Windows PC</b></li><li><span class="stat-label">Honest limits</span><b>Windows 11 (not built into Windows 10); To Do and Spotify need their own free accounts.</b></li></ul><footer class="card-foot"><a href="https://support.microsoft.com/en-us/windows" target="_blank" rel="noopener noreferrer">Windows help and learning - Microsoft Support</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="pomofocus"><header class="card-head"><h3>Pomofocus</h3><p class="chips"><span class="chip verdict-chip verdict-start">Start here</span><span class="chip">Freeware</span></p></header><p class="blurb">A zero-fuss pomodoro timer in any browser, with an optional task list that counts your finished rounds.</p><p class="does">Open the page and press the big countdown: twenty-five minutes of focus, a five-minute break, and a longer break after every fourth round, with a soft chime when each one ends. Optionally, type in your tasks, estimate how many pomodoros each will take, and let the report show what actually got done.</p><p class="verdict verdict-start"><b>Start here</b><span>No signup, no setup - this is the classic first pomodoro to try on one homework problem, one email, or one drawer, and the break is regular enough that your brain learns the rhythm.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The whole timer and task list work free in the browser without any account (an account is optional and free too), and there is no install and no ads in the timer itself. A Pro tier exists only for extras you do not need on day one.</b></li><li><span class="stat-label">Works on</span><b>Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Any modern browser on any device; keep the tab open while it runs.</b></li></ul><footer class="card-foot"><a href="https://pomofocus.io/" target="_blank" rel="noopener noreferrer">Pomofocus - official web app</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="apple-clock-timer"><header class="card-head"><h3>The humble timer (iPhone Clock app)</h3><p class="chips"><span class="chip verdict-chip verdict-start">Start here</span><span class="chip">Built in</span></p></header><p class="blurb">Sometimes the plain iPhone timer beats every focus app: start one, do one thing, stop when it rings.</p><p class="does">Open Clock, set ten minutes, and commit to exactly one task for exactly that long - the dishes, one page of reading, the one call you dread. When it rings you are free with zero guilt, because you kept the deal you made. This &#39;I only have to do ten minutes&#39; deal is one of the most reliable gentle starters there is, and the timer supplies the start and the end for you.</p><p class="verdict verdict-start"><b>Start here</b><span>The ten-minute timer is the classic on-ramp for chores and homework - the trick is to promise yourself you may stop when it rings, every single time.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The Clock app ships on every iPhone and iPad at no charge: nothing to download, buy, or sign into, and it works without internet.</b></li><li><span class="stat-label">Works on</span><b>iPhone / iPad</b></li><li><span class="stat-label">Honest limits</span><b>iPhone and iPad; the same idea works with any phone&#39;s stock timer.</b></li></ul><footer class="card-foot"><a href="https://support.apple.com/en-us/guide/iphone/iph3d5965cc/ios" target="_blank" rel="noopener noreferrer">Clock user guide for iPhone (Apple Support)</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="pomodor"><header class="card-head"><h3>Pomodor</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">A pomodoro timer that adds labels and habit stats, so vague dread turns into named, countable chunks.</p><p class="does">Break your work into sessions, label each one (essay draft, tidy kitchen, tax letter), and get a notification when time is up. A stats page shows how your focus sessions stack up across days, which turns an abstract &#39;I never get anything done&#39; feeling into a visible habit you can steer. Signing in is optional and syncs your history.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Try it when plain timers feel toothless - the labels are the magic, because &#39;work&#39; is unbearable but &#39;clean one shelf&#39; starts on its own.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The official site charges nothing for sessions, labels, and stats, and the optional account is free; there is no subscription advertised for the core timer. The web app runs in any browser with nothing to install.</b></li><li><span class="stat-label">Works on</span><b>Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Web only; keep the tab open while it runs.</b></li></ul><footer class="card-foot"><a href="https://pomodor.app/" target="_blank" rel="noopener noreferrer">Pomodor - official web app</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="tomato-timer"><header class="card-head"><h3>TomatoTimer</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">A clean one-page pomodoro timer with keyboard shortcuts, for days when even small setups feel like too much.</p><p class="does">One page, one timer: press start for a twenty-five-minute focus round, then short and long breaks in the classic rhythm. Keyboard shortcuts jump you between focus, short break, and long break, desktop notifications and a mild alert sound tell you when to switch, and custom intervals are there if the standard beat does not suit you.</p><p class="verdict verdict-easy"><b>Easy win</b><span>The fewest buttons of any timer on this list - good on the days when starting is the hard part and any settings screen would send you away.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Toptal hosts TomatoTimer free on its official project page, with no signup, no pricing, and nothing to install. The page is genuinely just a timer - it collects nothing and is usable on a phone&#39;s browser too.</b></li><li><span class="stat-label">Works on</span><b>Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Web only; desktop notifications work best in Chrome.</b></li></ul><footer class="card-foot"><a href="https://www.toptal.com/project-managers/tomato-timer" target="_blank" rel="noopener noreferrer">TomatoTimer - online pomodoro timer (Toptal)</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="stretchly"><header class="card-head"><h3>Stretchly</h3><p class="chips"><span class="chip verdict-chip verdict-practice">Worth practicing</span><span class="chip">Open source</span></p></header><p class="blurb">A gentle open-source app that nudges you to take microbreaks and real breaks, at a rhythm you choose.</p><p class="does">Stretchly lives in your system tray and adds rhythm to the day: tiny twenty-second microbreaks at set intervals and a longer rest every few of those, each announced by a quiet chime and a full-screen rest reminder that suggests what a break is for - stand, look far away, drink water. Every interval, sound, and rule is adjustable, and &#39;strict mode&#39; can lock breaks so they cannot be skipped.</p><p class="verdict verdict-practice"><b>Worth practicing</b><span>Break apps annoy everyone at first - start with microbreaks turned off and one real break every forty-five minutes, and give it a week before deciding.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>It is developed openly on GitHub, and the official page offers free downloads for Windows, macOS, and Linux with no account and no paid tier - donations support the developer. Break reminders are the entire product; nothing is held back behind a purchase.</b></li><li><span class="stat-label">Works on</span><b>Windows PC, Mac, Linux</b></li><li><span class="stat-label">Honest limits</span><b>Windows, macOS, and Linux; not a phone app.</b></li><li><span class="stat-label">License</span><b>Free and open source (see repository)</b></li></ul><footer class="card-foot"><a href="https://hovancik.net/stretchly/" target="_blank" rel="noopener noreferrer">Stretchly - official site and download</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article></div></section><section class="category" data-category="body-doubling"><h2>Body doubling and coworking</h2><p class="category-note">Work quietly beside a person (on camera or on a stream) - the company of someone else working makes starting far easier.</p><div class="card-grid"><article class="card" data-tool-id="focusmate"><header class="card-head"><h3>Focusmate</h3><p class="chips"><span class="chip verdict-chip verdict-start">Start here</span><span class="chip">Freeware</span></p></header><p class="blurb">Book a real, live human to work beside you on camera, silently - three sessions a week free, forever.</p><p class="does">Choose a twenty-five, fifty, or seventy-five minute slot, and Focusmate pairs you with another person somewhere in the world. You greet each other, say in one sentence what you are working on, work quietly side by side on camera, and finish with a quick report of what happened. There is no conversation to keep up - the silent company of another working human is the whole mechanism, and it is remarkably effective when starting is the problem.</p><p class="verdict verdict-start"><b>Start here</b><span>The first session feels strange for about five minutes and then never again - with three free sessions a week, the experiment costs nothing but honesty.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The free plan covers three scheduled sessions per week permanently - not a trial week - and asks for no payment information. Paid plans only exist to raise the number of sessions and offer group formats.</b></li><li><span class="stat-label">Works on</span><b>Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Web app (also works on phone browsers); the free limit is three sessions weekly.</b></li></ul><footer class="card-foot"><a href="https://focusmate.com/" target="_blank" rel="noopener noreferrer">Focusmate - official site and free plan</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="google-meet-body-double"><header class="card-head"><h3>Google Meet (do-it-together sessions)</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">No app to learn: a free video call with a friend, cameras on, mutes on, each of you doing your own boring task.</p><p class="does">Message a friend with the same problem - starting - and agree a slot. Start a Meet call, greet, turn microphones off, and each work on your own task with the other person faintly visible in the corner. Agree that at the end you each give a one-sentence report. The point is not conversation; the point is that someone knows you are at your desk, which famously makes starting chores and schoolwork easier.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Agree the rules out loud first - mutes on, cameras on, one-sentence wrap-up - because it is a ritual, not a chat, and the ritual is what works.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Anyone with a free Google account can start and join Meet calls without paying - it runs in a browser with nothing to install. The free plan currently allows calls up to roughly an hour, which fits a body-doubling session exactly.</b></li><li><span class="stat-label">Works on</span><b>Any web browser, Android phone, iPhone / iPad</b></li><li><span class="stat-label">Honest limits</span><b>Free calls currently run about an hour; needs a Google account.</b></li></ul><footer class="card-foot"><a href="https://meet.google.com/" target="_blank" rel="noopener noreferrer">Google Meet - official service page</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="lifeat"><header class="card-head"><h3>LifeAt</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">A focus workspace that puts an ambience video, a timer, and your to-do list on one calm page.</p><p class="does">Build a focus backdrop that suits you: a rainy café or library video playing softly, a pomodoro or countdown timer beside it, your tasks (or one task) pinned underneath, optional background music. It is &#39;body doubling by scenery&#39; - sitting yourself down in a dedicated study-room scene that the internet hands to you, which many people find makes the seat easier to stay in.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Open the free web app, pick the &#39;library&#39; scene, drop in one task, and run one timer - that is a complete workflow inside two minutes.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The core web workspace is free with a free account, and the free tier genuinely covers ambience videos, timers, and a task list with no trial countdown. A Pro plan exists for heavier integrations and custom uploads, but a working focus page costs nothing.</b></li><li><span class="stat-label">Works on</span><b>Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Web plus phone apps; some of the bigger extras sit behind the paid plan.</b></li></ul><footer class="card-foot"><a href="https://lifeat.io/" target="_blank" rel="noopener noreferrer">LifeAt - official site</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article></div></section><section class="category" data-category="text-to-speech"><h2>Text to speech</h2><p class="category-note">Hand long or difficult text to a voice and absorb it by listening - a way around reading walls.</p><div class="card-grid"><article class="card" data-tool-id="edge-read-aloud"><header class="card-head"><h3>Read Aloud in Microsoft Edge</h3><p class="chips"><span class="chip verdict-chip verdict-start">Start here</span><span class="chip">Built in</span></p></header><p class="blurb">Any article, webpage, or PDF in Edge read out loud with natural voices - nothing to install, one keystroke.</p><p class="does">Open any page or PDF in Edge and press Ctrl+Shift+U: Edge begins reading the text aloud and highlights each word as it goes, so you can follow along or just close your eyes and listen. Choose different voices and speeds from the toolbar, and it works on long documents - turning a page you kept postponing into something you can absorb on a walk.</p><p class="verdict verdict-start"><b>Start here</b><span>If you already have Edge, you already have this - try it today on the single document that defeated you, with the speed bumped up slightly.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Read Aloud is built into Edge at no charge with no account needed, and the natural-sounding voices stream from Microsoft&#39;s own service for free as part of the browser.</b></li><li><span class="stat-label">Works on</span><b>Edge browser</b></li><li><span class="stat-label">Honest limits</span><b>Ships with Edge on Windows, macOS, and Edge&#39;s phone apps.</b></li></ul><footer class="card-foot"><a href="https://www.microsoft.com/en-us/edge" target="_blank" rel="noopener noreferrer">Microsoft Edge - official site</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="balabolka"><header class="card-head"><h3>Balabolka</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">A free Windows veteran that reads almost any document aloud - and can save the reading as an MP3 for later.</p><p class="does">Drag a TXT, DOCX, EPUB, or PDF into Balabolka and it reads the text aloud using the voices installed on Windows, with speed and pitch controls friendly to hands and eyes. Its quietly brilliant trick is exporting: save any reading as an MP3 or WAV file, so a wall of course reading becomes an audio file for the bus or the dishes queue.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Turn to it when a browser reader cannot open the file type you have - the interface looks twenty years old because it is, and it works anyway.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The author distributes the full program free from the official site: completely functional, no ads inside, no upgrade nag, no account. The one cost of the tool is patience with an interface two decades old - the payoff is a reader with no limits per month.</b></li><li><span class="stat-label">Works on</span><b>Windows PC</b></li><li><span class="stat-label">Honest limits</span><b>Windows only; voice quality depends on the voices Windows has installed.</b></li></ul><footer class="card-foot"><a href="https://cross-plus-a.com/balabolka.htm" target="_blank" rel="noopener noreferrer">Balabolka - official download page</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="naturalreader"><header class="card-head"><h3>NaturalReader (free tier)</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">Paste in any text - course reading, a scary letter, your own draft - and listen instead of pushing through.</p><p class="does">The web reader takes pasted text (or pages submitted to it) and reads it aloud at your chosen pace with its standard voices. It is aimed squarely at exactly the moments when reading is the wall in front of you: long assignments, dense official letters, drafting your own writing that you cannot bear to reread off the screen.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Start with the free voices before ever considering a paid plan - for most one-off reading struggles the free tier carries the whole job.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>A free tier lets anyone paste text and listen with the free voices, with no purchase required to try it day to day. The paid plans buy premium AI voices, larger uploads, and MP3 downloads - the basics stay free and clearly labeled.</b></li><li><span class="stat-label">Works on</span><b>Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Web and phone apps; premium voices, MP3 export, and large files are paid.</b></li></ul><footer class="card-foot"><a href="https://www.naturalreaders.com/" target="_blank" rel="noopener noreferrer">NaturalReader - official site</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="ttsmaker"><header class="card-head"><h3>TTSMaker</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">Type or paste text, pick from dozens of voices in many languages, and download a free MP3 you can keep.</p><p class="does">Rather than a reader, it is a voice maker: paste in text, choose a voice and speed, listen in the browser, and download the audio file. That makes it the handy bridge from &#39;text on a screen I cannot face&#39; to &#39;audio in my ears&#39;: turn spelling lists, revision notes, or a wall of instructions into a walking-around audio file.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Use it when the text must become a file - a revision MP3 for the commute - rather than something read live at the desk.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The official site lets anyone generate and download speech free, without an account for reasonable use, and even says the outputs may be used commercially under its terms. Generation limits apply per request (long texts need splitting), but the limits cost nothing.</b></li><li><span class="stat-label">Works on</span><b>Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Free voices are standard quality; long texts need to be split per request.</b></li></ul><footer class="card-foot"><a href="https://ttsmaker.com/" target="_blank" rel="noopener noreferrer">TTSMaker - official site</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article></div></section><section class="category" data-category="note-capture"><h2>Note capture and brain dumps</h2><p class="category-note">Catch every idea, fear, and to-do in one inbox before it escapes, so nothing has to be held in your head all day.</p><div class="card-grid"><article class="card" data-tool-id="google-keep"><header class="card-head"><h3>Google Keep</h3><p class="chips"><span class="chip verdict-chip verdict-start">Start here</span><span class="chip">Freeware</span></p></header><p class="blurb">Google&#39;s sticky-note app: capture a fleeting idea in two seconds, with checklists and reminders that do the chasing for you.</p><p class="does">Keep&#39;s superpower is capture speed: a note, a list, a checkbox list, or a voice memo lands in the app before the thought escapes. Checklists handle groceries and chore loops; time reminders ping your phone at the moment you choose; pins and colors sort the top few things from the pile; everything syncs to web and every device through your Google account.</p><p class="verdict verdict-start"><b>Start here</b><span>The phone widget is the play: put a one-tap Keep button (or &#39;new list&#39;) where your thumb rests, and let it catch everything you would otherwise lose.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>A free Google service with no paid tier at all: every feature on the cards - lists, reminders, voice notes, sync - is simply free with your existing account.</b></li><li><span class="stat-label">Works on</span><b>Android phone, iPhone / iPad, Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Web and phone apps; notes stay simple by design, not a writing app.</b></li></ul><footer class="card-foot"><a href="https://keep.google.com/" target="_blank" rel="noopener noreferrer">Google Keep - official service page</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="onenote"><header class="card-head"><h3>OneNote</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">A digital notebook where every page is an open canvas - type anywhere, drag in photos, scribble with a finger.</p><p class="does">Notebooks, sections, and pages form a structure familiar to anyone who has ever owned a school binder, but each page accepts typing, photos of homework, sticky-note scribbles, and drawings anywhere you drop them. Pages find their way back through search (including handwritten words), and shared notebooks make family memos and club agendas painless.</p><p class="verdict verdict-easy"><b>Easy win</b><span>If you have ever signed in to anything Microsoft, you are nearly done - start one notebook called &#39;Now&#39; and one called &#39;Later&#39;, and just fling things onto pages.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Microsoft gives OneNote away - Windows, macOS, iPhone, Android, and web - with a free Microsoft account and 5 GB of OneDrive storage; no Microsoft 365 subscription is required to use it. The subscription only buys extra cloud storage and bundled office apps.</b></li><li><span class="stat-label">Works on</span><b>Windows PC, Mac, iPhone / iPad, Android phone, Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Free with a Microsoft account; extra cloud storage beyond 5 GB is paid.</b></li></ul><footer class="card-foot"><a href="https://www.microsoft.com/en-us/microsoft-365/onenote/digital-note-taking-app" target="_blank" rel="noopener noreferrer">OneNote - official site (Microsoft)</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="simplenote"><header class="card-head"><h3>Simplenote</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">Dead-simple plain-text notes that sync everywhere, with lightweight tags and version history.</p><p class="does">One plain text box per note, a list of notes, tags, and pins - that is the entire interface, on every platform. Version history quietly keeps every past state of a note, sharing a note (like a running grocery or chore list) makes it editable by another person, and internal search finds anything in seconds.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Perfect if fancy apps have stalled you before: start one long note as a daily dump page and never worry about structure again.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Simplenote&#39;s whole basic service is free from Automattic with a free account, sustained by the company&#39;s other products; the apps are even published as open source. There are no ads and no locked features sitting between you and your notes.</b></li><li><span class="stat-label">Works on</span><b>Windows PC, Mac, Linux, iPhone / iPad, Android phone</b></li><li><span class="stat-label">Honest limits</span><b>Windows, macOS, Linux, iOS, Android, and web; plain text and light Markdown, nothing richer.</b></li></ul><footer class="card-foot"><a href="https://simplenote.com/" target="_blank" rel="noopener noreferrer">Simplenote - official site and downloads</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="joplin"><header class="card-head"><h3>Joplin</h3><p class="chips"><span class="chip verdict-chip verdict-practice">Worth practicing</span><span class="chip">Open source</span></p></header><p class="blurb">An open-source notes app that keeps your whole brain in files you can own, search, and see on every device.</p><p class="does">Keep notebooks for each area of life - school, house, the feared inbox - with tagged notes, plain checklists, and fast full-text search to rescue anything from anywhere. Choose any cloud folder you already have (OneDrive, Dropbox, Nextcloud) as the sync spot and every device shows the same notes. A browser clipper extension lets you stash web pages into the pile too.</p><p class="verdict verdict-practice"><b>Worth practicing</b><span>Setup asks you to pick a sync folder, which is five fiddly minutes - worth it if &#39;my notes are scattered across four apps&#39; is your specific nightmare.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Released under the open-source MIT license and developed in public; the app itself is fully free on all platforms and there is no pro-locked feature set. Sync through your own existing cloud is free; the company sells an optional &#39;Joplin Cloud&#39; convenience service you never need to touch.</b></li><li><span class="stat-label">Works on</span><b>Windows PC, Mac, Linux, iPhone / iPad, Android phone</b></li><li><span class="stat-label">Honest limits</span><b>Windows, macOS, Linux, iOS, Android; sync needs a cloud folder you choose (Joplin Cloud is a paid extra).</b></li><li><span class="stat-label">License</span><b>MIT (free and open source)</b></li></ul><footer class="card-foot"><a href="https://joplinapp.org/" target="_blank" rel="noopener noreferrer">Joplin - official site and downloads</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="obsidian"><header class="card-head"><h3>Obsidian</h3><p class="chips"><span class="chip verdict-chip verdict-practice">Worth practicing</span><span class="chip">Freeware</span></p></header><p class="blurb">Keep every note as a plain text file, linked into a wiki of your own - free for personal use, forever upgrade-proof.</p><p class="does">Write short notes in plain Markdown, link them together with brackets, and watch backlinks and a graph reveal the shape of what you know. Because nothing is proprietary, your notes are ordinary files you can read in any editor in thirty years. A huge free community plugin library adds everything from task tracking to daily journals; start with the basics and one daily &#39;dump&#39; note.</p><p class="verdict verdict-practice"><b>Worth practicing</b><span>It rewards a little learning and punishes nothing - create one folder, one daily dump note, and let the structure grow out of real use instead of planning it upfront.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Personal use of the app itself is free on all platforms, with no account required to use it. The company earns money from optional services - Sync and Publish - which are never required: many people sync their files with any cloud folder they already have.</b></li><li><span class="stat-label">Works on</span><b>Windows PC, Mac, Linux, iPhone / iPad, Android phone</b></li><li><span class="stat-label">Honest limits</span><b>Windows, macOS, Linux, iOS, Android; official Sync is a paid extra (any cloud folder works).</b></li></ul><footer class="card-foot"><a href="https://obsidian.md/" target="_blank" rel="noopener noreferrer">Obsidian - official site and downloads</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article></div></section><section class="category" data-category="soundscapes"><h2>Soundscapes and focus sounds</h2><p class="category-note">Rain, brown noise, and soft café murmur to fill empty silence, so sudden sounds stop puncturing your attention.</p><div class="card-grid"><article class="card" data-tool-id="coffitivity"><header class="card-head"><h3>Coffitivity</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">The gentle murmur of other people working, in three free flavors - background company without background words.</p><p class="does">Choose between three coffeehouse ambience tracks (morning murmur, lunchtime bustle, university tones) and let a soft wall of indistinct café sound sit between you and the room. The trick is that the sound is wordless: enough life to mask a quiet room&#39;s every squeak, but nothing to decode, so it never takes attention from the page in front of you.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Best for quiet rooms, not loud ones - on a genuinely noisy day, pick a noise-based tool above and lean on the murmur another time.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The three core soundscapes are free on the web with no registration required; the site sells a handful of extra premium mixes, which is the clear line between free and paid.</b></li><li><span class="stat-label">Works on</span><b>Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Web only; three sounds free, extra mixes paid.</b></li></ul><footer class="card-foot"><a href="https://coffitivity.com/" target="_blank" rel="noopener noreferrer">Coffitivity - official site</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="mynoise"><header class="card-head"><h3>myNoise</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">The internet&#39;s best noise playground: soundscapes you can tune, built by a professional sound engineer.</p><p class="does">Each soundscape - rain, brown noise, a cathedral drone, a café murmur, dozens more - is a live generator with its own ten-band equalizer, so you can shape the sound to mask the exact noise in your room: the neighbor&#39;s dog, the office printer, your own restless thoughts. Calibrated hearing test, custom presets, and smooth blending between soundscapes come standard.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Try Brown Noise first, untouched, at low volume for one study or tidying session - tuning is a pleasure for later.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The web app runs free in the browser with no account and no ads inside the player; the developer sustains it with voluntary one-time donations. The mobile apps and a few bonus features unlock with a donation, but the web experience alone is complete for daily focus use.</b></li><li><span class="stat-label">Works on</span><b>Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Web use is free and near-complete; phone apps and extras unlock with a one-time donation.</b></li></ul><footer class="card-foot"><a href="https://mynoise.net/" target="_blank" rel="noopener noreferrer">myNoise - official site</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="noisli"><header class="card-head"><h3>Noisli (free plan)</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">Mix rain, thunder, wind, and a coffee house into one personalized blend, with a simple timer built in.</p><p class="does">Combine sounds at individual volumes to invent your own background - rain over wind over a train? Save blends as favorites, use one of the curated playlists, or work from the distraction-free text editor while the sound runs. The built-in timer gives the blend a length, so a session has a shape: sound up, work, timer down, stop.</p><p class="verdict verdict-easy"><b>Easy win</b><span>The free plan&#39;s streaming allowance is about an hour and a half a day - enough for one solid focus block, which is exactly how to use it.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The free plan (a free account) covers a genuine working set: sixteen sounds, three playlists, five saved favorites, a simple timer, and a simple text editor. The paid Pro plan buys the full 28-sound library, unlimited streaming, and advanced extras - the free plan does not run out and is not a demo.</b></li><li><span class="stat-label">Works on</span><b>Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Free plan: 16 sounds, about 1.5 hours streaming a day, 3 playlists; designed for desktop browsers.</b></li></ul><footer class="card-foot"><a href="https://www.noisli.com/" target="_blank" rel="noopener noreferrer">Noisli - official site</a><a href="https://www.noisli.com/pricing" target="_blank" rel="noopener noreferrer">Noisli plans and pricing (free plan details)</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="rainy-mood"><header class="card-head"><h3>Rainy Mood</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">One thing only: a deep, looping rainstorm in your browser, with nothing to configure.</p><p class="does">A single page with a play button that fills your room with full-quality rain - the low end gently fills empty silence, and sudden household sounds stop puncturing your attention. Pair it with headphones while studying, filing paperwork, or doing the dishes: weather you cannot see is famously easy to stop noticing after a minute, which is the point.</p><p class="verdict verdict-easy"><b>Easy win</b><span>The whole tool is one button - there is nothing to learn, so use it today on whichever boring task you keep postponing.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>A free web page from the developer with no account, no subscription, and nothing to install; the whole tool is the stream and a play button. There is a phone app in stores, but the web version is the simple free core.</b></li><li><span class="stat-label">Works on</span><b>Any web browser</b></li><li><span class="stat-label">Honest limits</span><b>Web only; one rain loop (some hear the loop edge over very long sessions).</b></li></ul><footer class="card-foot"><a href="https://rainymood.com/" target="_blank" rel="noopener noreferrer">Rainy Mood - official site</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article></div></section><section class="category" data-category="browser-calm"><h2>Browser calm-downs</h2><p class="category-note">Turn the web itself down: fewer ads and pop-ups, clean article views, and tab chaos quietly filed away.</p><div class="card-grid"><article class="card" data-tool-id="firefox-reader-view"><header class="card-head"><h3>Firefox Reader View</h3><p class="chips"><span class="chip verdict-chip verdict-start">Start here</span><span class="chip">Built in</span></p></header><p class="blurb">Firefox strips any article back to clean text at your font size, with nothing blinking, popping, or selling at you.</p><p class="does">Tap the reader icon in the address bar (or press Ctrl+Alt+R) and the page collapses to a single readable column: no sidebars, no autoplay video beside your scroll, no cookie banners mid-article. Adjust the font, width, and background to suit your eyes, save articles into reading list, and even have Firefox read them aloud.</p><p class="verdict verdict-start"><b>Start here</b><span>One click to a calmer page - use it on the one article that defeated you this week, and attach the habit to that site from here on.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Reader View is built into Firefox by Mozilla at no charge: no extension to trust, no account, no feature paywall - it is simply part of the browser.</b></li><li><span class="stat-label">Works on</span><b>Firefox browser</b></li><li><span class="stat-label">Honest limits</span><b>Firefox on computers and Android; works best on article pages, not web apps.</b></li></ul><footer class="card-foot"><a href="https://support.mozilla.org/en-US/kb/firefox-reader-view-clutter-free-web-pages" target="_blank" rel="noopener noreferrer">Firefox Reader View - official Mozilla support page</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="ublock-origin"><header class="card-head"><h3>uBlock Origin</h3><p class="chips"><span class="chip verdict-chip verdict-start">Start here</span><span class="chip">Open source</span></p></header><p class="blurb">The proven open-source ad blocker: fewer pop-ups, fewer autoplaying videos, calmer pages - at no charge, with no premium tier at all.</p><p class="does">uBlock Origin removes ads, pop-ups, autoplaying video, and tracking noise before they even load, which changes the emotional temperature of using the web: pages appear finished instead of twitching with things demanding clicks. It is highly configurable, but the default filter lists work well immediately; pause it per-site for any page that misbehaves.</p><p class="verdict verdict-start"><b>Start here</b><span>If you use Firefox, install it, leave the defaults alone, and enjoy the strange silence - the single biggest calm-down per unit of effort on this page.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Free and open source, developed in public on GitHub by volunteers, with no paid version in existence - the project&#39;s philosophy is a web experience that is not for sale, yours included.</b></li><li><span class="stat-label">Works on</span><b>Firefox browser</b></li><li><span class="stat-label">Honest limits</span><b>Firefox is the flagship home; Chromium browsers offer the lighter &#39;uBlock Origin Lite&#39;.</b></li><li><span class="stat-label">License</span><b>GNU GPL v3 (free and open source)</b></li></ul><footer class="card-foot"><a href="https://github.com/gorhill/uBlock" target="_blank" rel="noopener noreferrer">uBlock Origin - official GitHub repository</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="edge-immersive-reader"><header class="card-head"><h3>Immersive Reader (Microsoft Edge)</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Built in</span></p></header><p class="blurb">Edge&#39;s reading mode with school-grade legibility tools: fonts, spacing, grammar color-coding, and aloud-reading on one key.</p><p class="does">Press F9 (or click the book icon) on a supported page and Edge re-renders it as clean text with real typography controls - font style, size, spacing - plus focus aids borrowed from classrooms: highlight one, three, or five lines at a time, color-code parts of speech, and hand the reading straight to Read Aloud when eyes tire. Originally built for schools, quietly excellent for tired brains.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Try it on the densest study page you deal with; the line-focus tool alone turns a wall of text into a moving spotlight.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>Bundled into Edge by Microsoft at no charge with no account or subscription: it is one of the most feature-complete free reading tools most people have never opened.</b></li><li><span class="stat-label">Works on</span><b>Edge browser</b></li><li><span class="stat-label">Honest limits</span><b>Ships with Edge on Windows and macOS; works on supported article pages (F9).</b></li></ul><footer class="card-foot"><a href="https://www.microsoft.com/en-us/edge" target="_blank" rel="noopener noreferrer">Microsoft Edge - official site</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="just-read"><header class="card-head"><h3>Just Read</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Open source</span></p></header><p class="blurb">Reader mode, but deeply customizable: your fonts, colors, and margins, saved as reusable themes for the sites you fight with most.</p><p class="does">One click (or Ctrl+Shift+L) turns a cluttered page into a clean, beautifully typeset article - ads, modals, and navigation gone. Where it goes beyond built-in reader modes is control: theme the output in a visual editor or raw CSS, auto-run it on chosen sites, delete any leftover clutter by hand, and print the calm version. Great for pages reader modes mangle.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Use your first theme on the specific news site that ambushes you daily, and switch on auto-run for it so the calm version simply appears.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The extension is open source (published on GitHub under GPLv3) and the standard reader features are entirely free in Chrome, Edge, and Firefox with no account. An optional Premium tier adds saving, sharing, and annotations - nothing in the core reader is on trial.</b></li><li><span class="stat-label">Works on</span><b>Chrome browser, Edge browser, Firefox browser</b></li><li><span class="stat-label">Honest limits</span><b>Chrome, Edge, Firefox; built for article pages, not web apps.</b></li><li><span class="stat-label">License</span><b>GNU GPL v3 (free and open source), optional Premium extras</b></li></ul><footer class="card-foot"><a href="https://justread.link/" target="_blank" rel="noopener noreferrer">Just Read - official site</a><a href="https://github.com/ZachSaucier/Just-Read" target="_blank" rel="noopener noreferrer">Just Read source code on GitHub</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="momentum"><header class="card-head"><h3>Momentum</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Freeware</span></p></header><p class="blurb">Turns every new tab into a calm landscape photo and a single question: what is your main focus today?</p><p class="does">Wandering into a new tab to distract yourself abruptly deposits you somewhere quiet: a landscape, the time, and one text field asking for today&#39;s main focus. Typing one line there re-anchors the day before the next tabs open. The free version also keeps a small to-do list, so the dashboard stays a dashboard and never becomes a project system.</p><p class="verdict verdict-easy"><b>Easy win</b><span>The trick is the one question: answer it honestly each morning and let the new-tab habit quietly become the focus habit.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>The basic new-tab dashboard is free in Chrome, Edge, and Firefox and works without an account; the optional Momentum Plus subscription buys photo collections and integrations. The core dashboard - photo, clock, main focus, small list - stays free for good.</b></li><li><span class="stat-label">Works on</span><b>Chrome browser, Edge browser, Firefox browser</b></li><li><span class="stat-label">Honest limits</span><b>Chrome, Edge, Firefox as a new-tab extension; Plus extras are paid.</b></li></ul><footer class="card-foot"><a href="https://momentumdash.com/" target="_blank" rel="noopener noreferrer">Momentum - official site</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article><article class="card" data-tool-id="chrome-tab-groups"><header class="card-head"><h3>Tab groups (Chrome)</h3><p class="chips"><span class="chip verdict-chip verdict-easy">Easy win</span><span class="chip">Built in</span></p></header><p class="blurb">Color-coded, collapsible tab groups that turn a wall of forty tabs back into three quiet piles.</p><p class="does">Right-click any tab, choose &#39;Add tab to new group&#39;, name it and paint it a color; related tabs nest under a labeled dot that collapses out of sight with one click. &#39;Now&#39;, &#39;Wait&#39;, and &#39;Someday&#39; groups give the browser a three-shelf filing cabinet, and collapsed groups stay collapsed across restarts when saved.</p><p class="verdict verdict-easy"><b>Easy win</b><span>Start with exactly two groups, &#39;Now&#39; and &#39;Later&#39;, and collapse them at lunch - do not build a tab museum; you are hiding tabs, not curating them.</span></p><ul class="stats"><li><span class="stat-label">Why it is free</span><b>A built-in Chrome feature with nothing to install and nothing to pay for - the calm-down is already in the browser menu.</b></li><li><span class="stat-label">Works on</span><b>Chrome browser</b></li><li><span class="stat-label">Honest limits</span><b>Chrome on computers and phones; similar tools exist in Edge (vertical tabs).</b></li></ul><footer class="card-foot"><a href="https://support.google.com/chrome" target="_blank" rel="noopener noreferrer">Chrome tab groups - Google Chrome Help</a><span class="checked">Checked 2026-11-05 - recheck due 2027-02-05</span></footer></article></div></section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><b>Educational information only.</b> This page offers general guidance about free software, not medical advice, and it is no substitute for a doctor, therapist, or ADHD clinician.</p>
+    <p><b>No affiliate links.</b> Nothing here earns a commission, requires an account, or tracks you; links go only to each tool's official home, and the whole site is a single offline HTML file.</p>
+    <p>Free tools change fast. Every card shows when it was last hand-checked, so when in doubt, trust the linked official page over the card.</p>
+    <p>Distributed under the MIT License. Copyright (c) 2026 Asdale Dynamics, LLC. Part of Dylan Asdale's beginner-friendly AI guide collection. Not affiliated with Apple, Google, Microsoft, Mozilla, Toptal, or any tool publisher named here; product names are trademarks of their owners.</p>
+  </footer>
+
+  <script id="tools-data" type="application/json">
+{
+  "meta": {
+    "title": "Free Focus Tools",
+    "tagline": "Free ways to guard your attention and make tasks easier to start - distraction blockers, pomodoro and gentle timers, body-doubling sessions, text-to-speech readers, note capture, soundscapes, and browser calm-downs that many people with ADHD (and everyone else) lean on.",
+    "maintainer": "Asdale Dynamics, LLC",
+    "updatedOn": "2026-11-05",
+    "nextFullRecheck": "2027-02-05",
+    "policy": "No affiliate links: nothing on this page earns anyone a commission, ever. Every card links only to the tool's official home, states exactly why it is free and where the limits are, and carries a last-checked date plus a next-recheck date. Free tools change, so trust the linked official page over any card when dates are old.",
+    "companionNote": "Companion resource to the Free Accessibility Tools Directory, which covers free assistive software and built-in device settings (screen readers, magnifiers, dictation, captions). This directory covers the focus side of the same coin: getting started, staying started, and calming the web down."
+  },
+  "tools": [
+    {
+      "id": "selfcontrol",
+      "name": "SelfControl",
+      "category": "distraction-blockers",
+      "platforms": [
+        "macos"
+      ],
+      "freeStatus": "open-source",
+      "license": "Free and open source (GPL)",
+      "oneLiner": "A stubborn Mac blocker that keeps your time-wasting sites offline until the timer runs out, even if you delete the app first.",
+      "whatItDoes": "Pick the sites that derail you, set a timer for as many hours as you need, and click Start. SelfControl blocks those sites - and anything pulling from the same servers - until the timer ends. There is no pause button, no restart trick, and uninstalling does not turn it off early, which is exactly why it works when willpower runs out.",
+      "proofFree": "The source code is published openly for anyone to read and build, and the official site charges nothing for the app: no paid tier, no account, no license key. It is one independent developer's small, focused project offered to everyone for free.",
+      "beginnerVerdict": {
+        "level": "start-here",
+        "text": "If your focus battle happens on a Mac, this is the quickest honest test of whether blocking actually helps: pick three sites, try ninety minutes, and see what your day becomes."
+      },
+      "sources": [
+        {
+          "label": "SelfControl - official site and download",
+          "url": "https://selfcontrolapp.com/"
+        }
+      ],
+      "officialDomains": [
+        "selfcontrolapp.com"
+      ],
+      "versionHint": "Mac only; nothing for Windows or phones.",
+      "needs": [
+        "procrastination",
+        "study",
+        "overwhelm"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "leechblock-ng",
+      "name": "LeechBlock NG",
+      "category": "distraction-blockers",
+      "platforms": [
+        "firefox",
+        "chrome",
+        "edge"
+      ],
+      "freeStatus": "open-source",
+      "license": "Mozilla Public License 2.0 (free and open source)",
+      "oneLiner": "A free browser extension that decides exactly when each time-wasting site is allowed - up to thirty separate sets of rules.",
+      "whatItDoes": "Install it in Firefox, Chrome, or Edge, list the sites that eat your afternoon, and choose the rules: blocked during work hours, allowed ten minutes per hour, or locked down on the spot. A password - or a random access code you never read - can slow you down in the weak moments when you would normally just unblock yourself.",
+      "proofFree": "LeechBlock NG is developed in public on GitHub and released under the Mozilla Public License 2.0, and the official site never asks for payment. The Firefox, Chrome, and Edge versions are all free, with no account and no premium tier hiding the good features.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Powerful, and it rewards fiddling if you let it - start with one block set covering the two sites you resent most, and grow from there only if you need to."
+      },
+      "sources": [
+        {
+          "label": "LeechBlock - official site with install links",
+          "url": "https://www.proginosko.com/leechblock/"
+        },
+        {
+          "label": "LeechBlock NG source code on GitHub",
+          "url": "https://github.com/proginosko/LeechBlockNG"
+        }
+      ],
+      "officialDomains": [
+        "proginosko.com",
+        "github.com"
+      ],
+      "versionHint": "Firefox, Chrome, Edge, and similar browsers; phones need a desktop-grade browser like Firefox for Android.",
+      "needs": [
+        "procrastination",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "stayfocusd",
+      "name": "StayFocusd",
+      "category": "distraction-blockers",
+      "platforms": [
+        "chrome"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "Gives each distracting site a daily time budget, then quietly blocks it when your minutes run out.",
+      "whatItDoes": "You set a daily limit for each time-sink site - say, ten minutes of social media - and StayFocusd counts down while you browse. When your budget is spent, that site greets you with a stern blocked page until tomorrow. The 'nuclear option' flips it around and blocks everything except the short list you actually need for a task.",
+      "proofFree": "StayFocusd has been free in the Chrome Web Store for years, with no paid version and no account: the official site takes you straight to the install page. Nothing here is a trial that switches itself off - donations, not subscriptions, keep it going.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Set small budgets (ten minutes, not an hour) and remember the Blocked Sites page where you add and remove them - that is the whole tool."
+      },
+      "sources": [
+        {
+          "label": "StayFocusd - official site and Chrome install",
+          "url": "https://stayfocusd.com/"
+        }
+      ],
+      "officialDomains": [
+        "stayfocusd.com"
+      ],
+      "versionHint": "Chrome and most Chromium browsers; nothing for phones.",
+      "needs": [
+        "procrastination",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "cold-turkey-blocker",
+      "name": "Cold Turkey Blocker (free version)",
+      "category": "distraction-blockers",
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "Blocks whole sites and apps in one click, and lets itself be trusted: the free version never asks you to pay for the core job.",
+      "whatItDoes": "Add the sites and applications that trap you to a block list, turn blocking on, and nothing gets through until you say so. The free tier blocks unlimited sites and apps for as long as you set it, and unlike a timer app it also stops the desktop apps - the games, the email client, the chat window.",
+      "proofFree": "The free version is a full blocker, not a trial: unlimited blocks that last as long as you lock them for, with no expiry date and no nagging pop-ups. Schedules, usage reports, and blocking-resistance upgrades are clearly separated as paid extras on the official site; the core block job is free forever.",
+      "beginnerVerdict": {
+        "level": "start-here",
+        "text": "On Windows this is the strongest free block you can put between you and a bad habit - one lazy afternoon of setup buys weeks of quieter evenings if it clicks."
+      },
+      "sources": [
+        {
+          "label": "Cold Turkey - official site and download",
+          "url": "https://getcoldturkey.com/"
+        }
+      ],
+      "officialDomains": [
+        "getcoldturkey.com"
+      ],
+      "versionHint": "Windows and Mac; the free tier cannot pause active blocks or use schedules.",
+      "needs": [
+        "procrastination",
+        "study",
+        "overwhelm"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "apple-screen-time",
+      "name": "Screen Time (iPhone and iPad)",
+      "category": "distraction-blockers",
+      "platforms": [
+        "ios"
+      ],
+      "freeStatus": "built-in",
+      "oneLiner": "The blocker already inside your iPhone: daily app limits, scheduled downtime, and a passcode to protect you from yourself.",
+      "whatItDoes": "Open Settings and find Screen Time. Set daily limits for any app (fifteen minutes of TikTok, not three hours), schedule 'downtime' hours when only essential apps open, and lock the settings behind a passcode - ideally one held by a trusted person or one you genuinely do not remember. Limits sync across your Apple devices.",
+      "proofFree": "Built into every iPhone and iPad by Apple at no charge: nothing to download, no subscription, and no account beyond the Apple ID you already use. All of the useful features - app limits, downtime, the self-blocking passcode - are part of the free system.",
+      "beginnerVerdict": {
+        "level": "start-here",
+        "text": "The easiest first test on an iPhone: put a fifteen-minute daily limit on the two apps that steal your evenings, set the passcode, and see what the week feels like."
+      },
+      "sources": [
+        {
+          "label": "Use Screen Time on your iPhone or iPad (Apple Support)",
+          "url": "https://support.apple.com/en-us/108806"
+        }
+      ],
+      "officialDomains": [
+        "apple.com"
+      ],
+      "versionHint": "iOS and iPadOS; the same Screen Time settings exist on Mac.",
+      "needs": [
+        "procrastination",
+        "overwhelm",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "android-digital-wellbeing",
+      "name": "Digital Wellbeing (Android)",
+      "category": "distraction-blockers",
+      "platforms": [
+        "android"
+      ],
+      "freeStatus": "built-in",
+      "oneLiner": "Android's built-in dashboard for app time, with daily limits and a focus mode, already on your phone.",
+      "whatItDoes": "Open Settings and search for 'Digital Wellbeing'. The dashboard shows exactly how much time each app took today, daily timers grey out apps when their cut-off passes, and Focus mode temporarily switches off chosen distracting apps so the phone stays usable for maps, calls, and messages.",
+      "proofFree": "Included by Google with Android 9 and newer at no charge: no install, no subscription, no ads. Many phone makers (Samsung, Pixel, and others) add their own extra wellbeing dashboards on top, also free.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "It hides slightly differently on every brand of phone - search Settings for 'Digital Wellbeing' and start with a single app timer on your worst offender."
+      },
+      "sources": [
+        {
+          "label": "Digital Wellbeing - Android (Google)",
+          "url": "https://www.android.com/digital-wellbeing/"
+        }
+      ],
+      "officialDomains": [
+        "android.com"
+      ],
+      "versionHint": "Android 9 and newer; where it lives varies by phone brand.",
+      "needs": [
+        "procrastination",
+        "overwhelm"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "pomofocus",
+      "name": "Pomofocus",
+      "category": "focus-timers",
+      "platforms": [
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "A zero-fuss pomodoro timer in any browser, with an optional task list that counts your finished rounds.",
+      "whatItDoes": "Open the page and press the big countdown: twenty-five minutes of focus, a five-minute break, and a longer break after every fourth round, with a soft chime when each one ends. Optionally, type in your tasks, estimate how many pomodoros each will take, and let the report show what actually got done.",
+      "proofFree": "The whole timer and task list work free in the browser without any account (an account is optional and free too), and there is no install and no ads in the timer itself. A Pro tier exists only for extras you do not need on day one.",
+      "beginnerVerdict": {
+        "level": "start-here",
+        "text": "No signup, no setup - this is the classic first pomodoro to try on one homework problem, one email, or one drawer, and the break is regular enough that your brain learns the rhythm."
+      },
+      "sources": [
+        {
+          "label": "Pomofocus - official web app",
+          "url": "https://pomofocus.io/"
+        }
+      ],
+      "officialDomains": [
+        "pomofocus.io"
+      ],
+      "versionHint": "Any modern browser on any device; keep the tab open while it runs.",
+      "needs": [
+        "procrastination",
+        "study",
+        "chores"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "pomodor",
+      "name": "Pomodor",
+      "category": "focus-timers",
+      "platforms": [
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "A pomodoro timer that adds labels and habit stats, so vague dread turns into named, countable chunks.",
+      "whatItDoes": "Break your work into sessions, label each one (essay draft, tidy kitchen, tax letter), and get a notification when time is up. A stats page shows how your focus sessions stack up across days, which turns an abstract 'I never get anything done' feeling into a visible habit you can steer. Signing in is optional and syncs your history.",
+      "proofFree": "The official site charges nothing for sessions, labels, and stats, and the optional account is free; there is no subscription advertised for the core timer. The web app runs in any browser with nothing to install.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Try it when plain timers feel toothless - the labels are the magic, because 'work' is unbearable but 'clean one shelf' starts on its own."
+      },
+      "sources": [
+        {
+          "label": "Pomodor - official web app",
+          "url": "https://pomodor.app/"
+        }
+      ],
+      "officialDomains": [
+        "pomodor.app"
+      ],
+      "versionHint": "Web only; keep the tab open while it runs.",
+      "needs": [
+        "procrastination",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "tomato-timer",
+      "name": "TomatoTimer",
+      "category": "focus-timers",
+      "platforms": [
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "A clean one-page pomodoro timer with keyboard shortcuts, for days when even small setups feel like too much.",
+      "whatItDoes": "One page, one timer: press start for a twenty-five-minute focus round, then short and long breaks in the classic rhythm. Keyboard shortcuts jump you between focus, short break, and long break, desktop notifications and a mild alert sound tell you when to switch, and custom intervals are there if the standard beat does not suit you.",
+      "proofFree": "Toptal hosts TomatoTimer free on its official project page, with no signup, no pricing, and nothing to install. The page is genuinely just a timer - it collects nothing and is usable on a phone's browser too.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "The fewest buttons of any timer on this list - good on the days when starting is the hard part and any settings screen would send you away."
+      },
+      "sources": [
+        {
+          "label": "TomatoTimer - online pomodoro timer (Toptal)",
+          "url": "https://www.toptal.com/project-managers/tomato-timer"
+        }
+      ],
+      "officialDomains": [
+        "toptal.com"
+      ],
+      "versionHint": "Web only; desktop notifications work best in Chrome.",
+      "needs": [
+        "procrastination",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "stretchly",
+      "name": "Stretchly",
+      "category": "focus-timers",
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "freeStatus": "open-source",
+      "license": "Free and open source (see repository)",
+      "oneLiner": "A gentle open-source app that nudges you to take microbreaks and real breaks, at a rhythm you choose.",
+      "whatItDoes": "Stretchly lives in your system tray and adds rhythm to the day: tiny twenty-second microbreaks at set intervals and a longer rest every few of those, each announced by a quiet chime and a full-screen rest reminder that suggests what a break is for - stand, look far away, drink water. Every interval, sound, and rule is adjustable, and 'strict mode' can lock breaks so they cannot be skipped.",
+      "proofFree": "It is developed openly on GitHub, and the official page offers free downloads for Windows, macOS, and Linux with no account and no paid tier - donations support the developer. Break reminders are the entire product; nothing is held back behind a purchase.",
+      "beginnerVerdict": {
+        "level": "with-practice",
+        "text": "Break apps annoy everyone at first - start with microbreaks turned off and one real break every forty-five minutes, and give it a week before deciding."
+      },
+      "sources": [
+        {
+          "label": "Stretchly - official site and download",
+          "url": "https://hovancik.net/stretchly/"
+        }
+      ],
+      "officialDomains": [
+        "hovancik.net",
+        "github.com"
+      ],
+      "versionHint": "Windows, macOS, and Linux; not a phone app.",
+      "needs": [
+        "overwhelm",
+        "study",
+        "chores"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "windows-focus-sessions",
+      "name": "Focus sessions (Windows 11 Clock app)",
+      "category": "focus-timers",
+      "platforms": [
+        "windows"
+      ],
+      "freeStatus": "built-in",
+      "oneLiner": "A pomodoro-style focus feature already inside Windows 11's Clock app, complete with a daily streak.",
+      "whatItDoes": "Open the Clock app that ships with Windows 11, choose Focus sessions, and set any length of time from fifteen minutes up. Windows silent-modes your notifications, counts down with a neat progress ring, and keeps a daily streak so motivation gets a small scoreboard. Connect Microsoft To Do (free account) if you want the timer tied to a task list, or Spotify (free tier) if you focus to music.",
+      "proofFree": "Pre-installed with Windows 11 and updated free through the Microsoft Store; the focus sessions themselves need no subscription and no new account. The To Do and Spotify tie-ins simply use those services' own free accounts.",
+      "beginnerVerdict": {
+        "level": "start-here",
+        "text": "If you work on a Windows 11 PC, this is already on your machine - search 'Clock', set thirty minutes, and let the streak counter do its quiet work."
+      },
+      "sources": [
+        {
+          "label": "Windows help and learning - Microsoft Support",
+          "url": "https://support.microsoft.com/en-us/windows"
+        }
+      ],
+      "officialDomains": [
+        "microsoft.com",
+        "support.microsoft.com"
+      ],
+      "versionHint": "Windows 11 (not built into Windows 10); To Do and Spotify need their own free accounts.",
+      "needs": [
+        "procrastination",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "apple-clock-timer",
+      "name": "The humble timer (iPhone Clock app)",
+      "category": "focus-timers",
+      "platforms": [
+        "ios"
+      ],
+      "freeStatus": "built-in",
+      "oneLiner": "Sometimes the plain iPhone timer beats every focus app: start one, do one thing, stop when it rings.",
+      "whatItDoes": "Open Clock, set ten minutes, and commit to exactly one task for exactly that long - the dishes, one page of reading, the one call you dread. When it rings you are free with zero guilt, because you kept the deal you made. This 'I only have to do ten minutes' deal is one of the most reliable gentle starters there is, and the timer supplies the start and the end for you.",
+      "proofFree": "The Clock app ships on every iPhone and iPad at no charge: nothing to download, buy, or sign into, and it works without internet.",
+      "beginnerVerdict": {
+        "level": "start-here",
+        "text": "The ten-minute timer is the classic on-ramp for chores and homework - the trick is to promise yourself you may stop when it rings, every single time."
+      },
+      "sources": [
+        {
+          "label": "Clock user guide for iPhone (Apple Support)",
+          "url": "https://support.apple.com/en-us/guide/iphone/iph3d5965cc/ios"
+        }
+      ],
+      "officialDomains": [
+        "apple.com"
+      ],
+      "versionHint": "iPhone and iPad; the same idea works with any phone's stock timer.",
+      "needs": [
+        "chores",
+        "procrastination",
+        "overwhelm"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "focusmate",
+      "name": "Focusmate",
+      "category": "body-doubling",
+      "platforms": [
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "Book a real, live human to work beside you on camera, silently - three sessions a week free, forever.",
+      "whatItDoes": "Choose a twenty-five, fifty, or seventy-five minute slot, and Focusmate pairs you with another person somewhere in the world. You greet each other, say in one sentence what you are working on, work quietly side by side on camera, and finish with a quick report of what happened. There is no conversation to keep up - the silent company of another working human is the whole mechanism, and it is remarkably effective when starting is the problem.",
+      "proofFree": "The free plan covers three scheduled sessions per week permanently - not a trial week - and asks for no payment information. Paid plans only exist to raise the number of sessions and offer group formats.",
+      "beginnerVerdict": {
+        "level": "start-here",
+        "text": "The first session feels strange for about five minutes and then never again - with three free sessions a week, the experiment costs nothing but honesty."
+      },
+      "sources": [
+        {
+          "label": "Focusmate - official site and free plan",
+          "url": "https://focusmate.com/"
+        }
+      ],
+      "officialDomains": [
+        "focusmate.com"
+      ],
+      "versionHint": "Web app (also works on phone browsers); the free limit is three sessions weekly.",
+      "needs": [
+        "procrastination",
+        "overwhelm",
+        "chores",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "lifeat",
+      "name": "LifeAt",
+      "category": "body-doubling",
+      "platforms": [
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "A focus workspace that puts an ambience video, a timer, and your to-do list on one calm page.",
+      "whatItDoes": "Build a focus backdrop that suits you: a rainy café or library video playing softly, a pomodoro or countdown timer beside it, your tasks (or one task) pinned underneath, optional background music. It is 'body doubling by scenery' - sitting yourself down in a dedicated study-room scene that the internet hands to you, which many people find makes the seat easier to stay in.",
+      "proofFree": "The core web workspace is free with a free account, and the free tier genuinely covers ambience videos, timers, and a task list with no trial countdown. A Pro plan exists for heavier integrations and custom uploads, but a working focus page costs nothing.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Open the free web app, pick the 'library' scene, drop in one task, and run one timer - that is a complete workflow inside two minutes."
+      },
+      "sources": [
+        {
+          "label": "LifeAt - official site",
+          "url": "https://lifeat.io/"
+        }
+      ],
+      "officialDomains": [
+        "lifeat.io"
+      ],
+      "versionHint": "Web plus phone apps; some of the bigger extras sit behind the paid plan.",
+      "needs": [
+        "study",
+        "procrastination",
+        "overwhelm"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "google-meet-body-double",
+      "name": "Google Meet (do-it-together sessions)",
+      "category": "body-doubling",
+      "platforms": [
+        "web",
+        "android",
+        "ios"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "No app to learn: a free video call with a friend, cameras on, mutes on, each of you doing your own boring task.",
+      "whatItDoes": "Message a friend with the same problem - starting - and agree a slot. Start a Meet call, greet, turn microphones off, and each work on your own task with the other person faintly visible in the corner. Agree that at the end you each give a one-sentence report. The point is not conversation; the point is that someone knows you are at your desk, which famously makes starting chores and schoolwork easier.",
+      "proofFree": "Anyone with a free Google account can start and join Meet calls without paying - it runs in a browser with nothing to install. The free plan currently allows calls up to roughly an hour, which fits a body-doubling session exactly.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Agree the rules out loud first - mutes on, cameras on, one-sentence wrap-up - because it is a ritual, not a chat, and the ritual is what works."
+      },
+      "sources": [
+        {
+          "label": "Google Meet - official service page",
+          "url": "https://meet.google.com/"
+        }
+      ],
+      "officialDomains": [
+        "google.com",
+        "meet.google.com"
+      ],
+      "versionHint": "Free calls currently run about an hour; needs a Google account.",
+      "needs": [
+        "procrastination",
+        "chores",
+        "study",
+        "overwhelm"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "edge-read-aloud",
+      "name": "Read Aloud in Microsoft Edge",
+      "category": "text-to-speech",
+      "platforms": [
+        "edge"
+      ],
+      "freeStatus": "built-in",
+      "oneLiner": "Any article, webpage, or PDF in Edge read out loud with natural voices - nothing to install, one keystroke.",
+      "whatItDoes": "Open any page or PDF in Edge and press Ctrl+Shift+U: Edge begins reading the text aloud and highlights each word as it goes, so you can follow along or just close your eyes and listen. Choose different voices and speeds from the toolbar, and it works on long documents - turning a page you kept postponing into something you can absorb on a walk.",
+      "proofFree": "Read Aloud is built into Edge at no charge with no account needed, and the natural-sounding voices stream from Microsoft's own service for free as part of the browser.",
+      "beginnerVerdict": {
+        "level": "start-here",
+        "text": "If you already have Edge, you already have this - try it today on the single document that defeated you, with the speed bumped up slightly."
+      },
+      "sources": [
+        {
+          "label": "Microsoft Edge - official site",
+          "url": "https://www.microsoft.com/en-us/edge"
+        }
+      ],
+      "officialDomains": [
+        "microsoft.com"
+      ],
+      "versionHint": "Ships with Edge on Windows, macOS, and Edge's phone apps.",
+      "needs": [
+        "study",
+        "overwhelm",
+        "procrastination"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "balabolka",
+      "name": "Balabolka",
+      "category": "text-to-speech",
+      "platforms": [
+        "windows"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "A free Windows veteran that reads almost any document aloud - and can save the reading as an MP3 for later.",
+      "whatItDoes": "Drag a TXT, DOCX, EPUB, or PDF into Balabolka and it reads the text aloud using the voices installed on Windows, with speed and pitch controls friendly to hands and eyes. Its quietly brilliant trick is exporting: save any reading as an MP3 or WAV file, so a wall of course reading becomes an audio file for the bus or the dishes queue.",
+      "proofFree": "The author distributes the full program free from the official site: completely functional, no ads inside, no upgrade nag, no account. The one cost of the tool is patience with an interface two decades old - the payoff is a reader with no limits per month.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Turn to it when a browser reader cannot open the file type you have - the interface looks twenty years old because it is, and it works anyway."
+      },
+      "sources": [
+        {
+          "label": "Balabolka - official download page",
+          "url": "https://cross-plus-a.com/balabolka.htm"
+        }
+      ],
+      "officialDomains": [
+        "cross-plus-a.com"
+      ],
+      "versionHint": "Windows only; voice quality depends on the voices Windows has installed.",
+      "needs": [
+        "study",
+        "overwhelm"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "naturalreader",
+      "name": "NaturalReader (free tier)",
+      "category": "text-to-speech",
+      "platforms": [
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "Paste in any text - course reading, a scary letter, your own draft - and listen instead of pushing through.",
+      "whatItDoes": "The web reader takes pasted text (or pages submitted to it) and reads it aloud at your chosen pace with its standard voices. It is aimed squarely at exactly the moments when reading is the wall in front of you: long assignments, dense official letters, drafting your own writing that you cannot bear to reread off the screen.",
+      "proofFree": "A free tier lets anyone paste text and listen with the free voices, with no purchase required to try it day to day. The paid plans buy premium AI voices, larger uploads, and MP3 downloads - the basics stay free and clearly labeled.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Start with the free voices before ever considering a paid plan - for most one-off reading struggles the free tier carries the whole job."
+      },
+      "sources": [
+        {
+          "label": "NaturalReader - official site",
+          "url": "https://www.naturalreaders.com/"
+        }
+      ],
+      "officialDomains": [
+        "naturalreaders.com"
+      ],
+      "versionHint": "Web and phone apps; premium voices, MP3 export, and large files are paid.",
+      "needs": [
+        "study",
+        "overwhelm"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "ttsmaker",
+      "name": "TTSMaker",
+      "category": "text-to-speech",
+      "platforms": [
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "Type or paste text, pick from dozens of voices in many languages, and download a free MP3 you can keep.",
+      "whatItDoes": "Rather than a reader, it is a voice maker: paste in text, choose a voice and speed, listen in the browser, and download the audio file. That makes it the handy bridge from 'text on a screen I cannot face' to 'audio in my ears': turn spelling lists, revision notes, or a wall of instructions into a walking-around audio file.",
+      "proofFree": "The official site lets anyone generate and download speech free, without an account for reasonable use, and even says the outputs may be used commercially under its terms. Generation limits apply per request (long texts need splitting), but the limits cost nothing.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Use it when the text must become a file - a revision MP3 for the commute - rather than something read live at the desk."
+      },
+      "sources": [
+        {
+          "label": "TTSMaker - official site",
+          "url": "https://ttsmaker.com/"
+        }
+      ],
+      "officialDomains": [
+        "ttsmaker.com"
+      ],
+      "versionHint": "Free voices are standard quality; long texts need to be split per request.",
+      "needs": [
+        "study",
+        "overwhelm"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "joplin",
+      "name": "Joplin",
+      "category": "note-capture",
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "ios",
+        "android"
+      ],
+      "freeStatus": "open-source",
+      "license": "MIT (free and open source)",
+      "oneLiner": "An open-source notes app that keeps your whole brain in files you can own, search, and see on every device.",
+      "whatItDoes": "Keep notebooks for each area of life - school, house, the feared inbox - with tagged notes, plain checklists, and fast full-text search to rescue anything from anywhere. Choose any cloud folder you already have (OneDrive, Dropbox, Nextcloud) as the sync spot and every device shows the same notes. A browser clipper extension lets you stash web pages into the pile too.",
+      "proofFree": "Released under the open-source MIT license and developed in public; the app itself is fully free on all platforms and there is no pro-locked feature set. Sync through your own existing cloud is free; the company sells an optional 'Joplin Cloud' convenience service you never need to touch.",
+      "beginnerVerdict": {
+        "level": "with-practice",
+        "text": "Setup asks you to pick a sync folder, which is five fiddly minutes - worth it if 'my notes are scattered across four apps' is your specific nightmare."
+      },
+      "sources": [
+        {
+          "label": "Joplin - official site and downloads",
+          "url": "https://joplinapp.org/"
+        }
+      ],
+      "officialDomains": [
+        "joplinapp.org"
+      ],
+      "versionHint": "Windows, macOS, Linux, iOS, Android; sync needs a cloud folder you choose (Joplin Cloud is a paid extra).",
+      "needs": [
+        "overwhelm",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "obsidian",
+      "name": "Obsidian",
+      "category": "note-capture",
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "ios",
+        "android"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "Keep every note as a plain text file, linked into a wiki of your own - free for personal use, forever upgrade-proof.",
+      "whatItDoes": "Write short notes in plain Markdown, link them together with brackets, and watch backlinks and a graph reveal the shape of what you know. Because nothing is proprietary, your notes are ordinary files you can read in any editor in thirty years. A huge free community plugin library adds everything from task tracking to daily journals; start with the basics and one daily 'dump' note.",
+      "proofFree": "Personal use of the app itself is free on all platforms, with no account required to use it. The company earns money from optional services - Sync and Publish - which are never required: many people sync their files with any cloud folder they already have.",
+      "beginnerVerdict": {
+        "level": "with-practice",
+        "text": "It rewards a little learning and punishes nothing - create one folder, one daily dump note, and let the structure grow out of real use instead of planning it upfront."
+      },
+      "sources": [
+        {
+          "label": "Obsidian - official site and downloads",
+          "url": "https://obsidian.md/"
+        }
+      ],
+      "officialDomains": [
+        "obsidian.md"
+      ],
+      "versionHint": "Windows, macOS, Linux, iOS, Android; official Sync is a paid extra (any cloud folder works).",
+      "needs": [
+        "overwhelm",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "onenote",
+      "name": "OneNote",
+      "category": "note-capture",
+      "platforms": [
+        "windows",
+        "macos",
+        "ios",
+        "android",
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "A digital notebook where every page is an open canvas - type anywhere, drag in photos, scribble with a finger.",
+      "whatItDoes": "Notebooks, sections, and pages form a structure familiar to anyone who has ever owned a school binder, but each page accepts typing, photos of homework, sticky-note scribbles, and drawings anywhere you drop them. Pages find their way back through search (including handwritten words), and shared notebooks make family memos and club agendas painless.",
+      "proofFree": "Microsoft gives OneNote away - Windows, macOS, iPhone, Android, and web - with a free Microsoft account and 5 GB of OneDrive storage; no Microsoft 365 subscription is required to use it. The subscription only buys extra cloud storage and bundled office apps.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "If you have ever signed in to anything Microsoft, you are nearly done - start one notebook called 'Now' and one called 'Later', and just fling things onto pages."
+      },
+      "sources": [
+        {
+          "label": "OneNote - official site (Microsoft)",
+          "url": "https://www.microsoft.com/en-us/microsoft-365/onenote/digital-note-taking-app"
+        }
+      ],
+      "officialDomains": [
+        "microsoft.com",
+        "onenote.com"
+      ],
+      "versionHint": "Free with a Microsoft account; extra cloud storage beyond 5 GB is paid.",
+      "needs": [
+        "overwhelm",
+        "study",
+        "chores"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "google-keep",
+      "name": "Google Keep",
+      "category": "note-capture",
+      "platforms": [
+        "android",
+        "ios",
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "Google's sticky-note app: capture a fleeting idea in two seconds, with checklists and reminders that do the chasing for you.",
+      "whatItDoes": "Keep's superpower is capture speed: a note, a list, a checkbox list, or a voice memo lands in the app before the thought escapes. Checklists handle groceries and chore loops; time reminders ping your phone at the moment you choose; pins and colors sort the top few things from the pile; everything syncs to web and every device through your Google account.",
+      "proofFree": "A free Google service with no paid tier at all: every feature on the cards - lists, reminders, voice notes, sync - is simply free with your existing account.",
+      "beginnerVerdict": {
+        "level": "start-here",
+        "text": "The phone widget is the play: put a one-tap Keep button (or 'new list') where your thumb rests, and let it catch everything you would otherwise lose."
+      },
+      "sources": [
+        {
+          "label": "Google Keep - official service page",
+          "url": "https://keep.google.com/"
+        }
+      ],
+      "officialDomains": [
+        "google.com"
+      ],
+      "versionHint": "Web and phone apps; notes stay simple by design, not a writing app.",
+      "needs": [
+        "overwhelm",
+        "chores"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "simplenote",
+      "name": "Simplenote",
+      "category": "note-capture",
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "ios",
+        "android"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "Dead-simple plain-text notes that sync everywhere, with lightweight tags and version history.",
+      "whatItDoes": "One plain text box per note, a list of notes, tags, and pins - that is the entire interface, on every platform. Version history quietly keeps every past state of a note, sharing a note (like a running grocery or chore list) makes it editable by another person, and internal search finds anything in seconds.",
+      "proofFree": "Simplenote's whole basic service is free from Automattic with a free account, sustained by the company's other products; the apps are even published as open source. There are no ads and no locked features sitting between you and your notes.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Perfect if fancy apps have stalled you before: start one long note as a daily dump page and never worry about structure again."
+      },
+      "sources": [
+        {
+          "label": "Simplenote - official site and downloads",
+          "url": "https://simplenote.com/"
+        }
+      ],
+      "officialDomains": [
+        "simplenote.com"
+      ],
+      "versionHint": "Windows, macOS, Linux, iOS, Android, and web; plain text and light Markdown, nothing richer.",
+      "needs": [
+        "overwhelm",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "mynoise",
+      "name": "myNoise",
+      "category": "soundscapes",
+      "platforms": [
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "The internet's best noise playground: soundscapes you can tune, built by a professional sound engineer.",
+      "whatItDoes": "Each soundscape - rain, brown noise, a cathedral drone, a café murmur, dozens more - is a live generator with its own ten-band equalizer, so you can shape the sound to mask the exact noise in your room: the neighbor's dog, the office printer, your own restless thoughts. Calibrated hearing test, custom presets, and smooth blending between soundscapes come standard.",
+      "proofFree": "The web app runs free in the browser with no account and no ads inside the player; the developer sustains it with voluntary one-time donations. The mobile apps and a few bonus features unlock with a donation, but the web experience alone is complete for daily focus use.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Try Brown Noise first, untouched, at low volume for one study or tidying session - tuning is a pleasure for later."
+      },
+      "sources": [
+        {
+          "label": "myNoise - official site",
+          "url": "https://mynoise.net/"
+        }
+      ],
+      "officialDomains": [
+        "mynoise.net"
+      ],
+      "versionHint": "Web use is free and near-complete; phone apps and extras unlock with a one-time donation.",
+      "needs": [
+        "overwhelm",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "rainy-mood",
+      "name": "Rainy Mood",
+      "category": "soundscapes",
+      "platforms": [
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "One thing only: a deep, looping rainstorm in your browser, with nothing to configure.",
+      "whatItDoes": "A single page with a play button that fills your room with full-quality rain - the low end gently fills empty silence, and sudden household sounds stop puncturing your attention. Pair it with headphones while studying, filing paperwork, or doing the dishes: weather you cannot see is famously easy to stop noticing after a minute, which is the point.",
+      "proofFree": "A free web page from the developer with no account, no subscription, and nothing to install; the whole tool is the stream and a play button. There is a phone app in stores, but the web version is the simple free core.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "The whole tool is one button - there is nothing to learn, so use it today on whichever boring task you keep postponing."
+      },
+      "sources": [
+        {
+          "label": "Rainy Mood - official site",
+          "url": "https://rainymood.com/"
+        }
+      ],
+      "officialDomains": [
+        "rainymood.com"
+      ],
+      "versionHint": "Web only; one rain loop (some hear the loop edge over very long sessions).",
+      "needs": [
+        "overwhelm",
+        "study",
+        "chores"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "coffitivity",
+      "name": "Coffitivity",
+      "category": "soundscapes",
+      "platforms": [
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "The gentle murmur of other people working, in three free flavors - background company without background words.",
+      "whatItDoes": "Choose between three coffeehouse ambience tracks (morning murmur, lunchtime bustle, university tones) and let a soft wall of indistinct café sound sit between you and the room. The trick is that the sound is wordless: enough life to mask a quiet room's every squeak, but nothing to decode, so it never takes attention from the page in front of you.",
+      "proofFree": "The three core soundscapes are free on the web with no registration required; the site sells a handful of extra premium mixes, which is the clear line between free and paid.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Best for quiet rooms, not loud ones - on a genuinely noisy day, pick a noise-based tool above and lean on the murmur another time."
+      },
+      "sources": [
+        {
+          "label": "Coffitivity - official site",
+          "url": "https://coffitivity.com/"
+        }
+      ],
+      "officialDomains": [
+        "coffitivity.com"
+      ],
+      "versionHint": "Web only; three sounds free, extra mixes paid.",
+      "needs": [
+        "study",
+        "overwhelm"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "noisli",
+      "name": "Noisli (free plan)",
+      "category": "soundscapes",
+      "platforms": [
+        "web"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "Mix rain, thunder, wind, and a coffee house into one personalized blend, with a simple timer built in.",
+      "whatItDoes": "Combine sounds at individual volumes to invent your own background - rain over wind over a train? Save blends as favorites, use one of the curated playlists, or work from the distraction-free text editor while the sound runs. The built-in timer gives the blend a length, so a session has a shape: sound up, work, timer down, stop.",
+      "proofFree": "The free plan (a free account) covers a genuine working set: sixteen sounds, three playlists, five saved favorites, a simple timer, and a simple text editor. The paid Pro plan buys the full 28-sound library, unlimited streaming, and advanced extras - the free plan does not run out and is not a demo.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "The free plan's streaming allowance is about an hour and a half a day - enough for one solid focus block, which is exactly how to use it."
+      },
+      "sources": [
+        {
+          "label": "Noisli - official site",
+          "url": "https://www.noisli.com/"
+        },
+        {
+          "label": "Noisli plans and pricing (free plan details)",
+          "url": "https://www.noisli.com/pricing"
+        }
+      ],
+      "officialDomains": [
+        "noisli.com"
+      ],
+      "versionHint": "Free plan: 16 sounds, about 1.5 hours streaming a day, 3 playlists; designed for desktop browsers.",
+      "needs": [
+        "overwhelm",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "ublock-origin",
+      "name": "uBlock Origin",
+      "category": "browser-calm",
+      "platforms": [
+        "firefox"
+      ],
+      "freeStatus": "open-source",
+      "license": "GNU GPL v3 (free and open source)",
+      "oneLiner": "The proven open-source ad blocker: fewer pop-ups, fewer autoplaying videos, calmer pages - at no charge, with no premium tier at all.",
+      "whatItDoes": "uBlock Origin removes ads, pop-ups, autoplaying video, and tracking noise before they even load, which changes the emotional temperature of using the web: pages appear finished instead of twitching with things demanding clicks. It is highly configurable, but the default filter lists work well immediately; pause it per-site for any page that misbehaves.",
+      "proofFree": "Free and open source, developed in public on GitHub by volunteers, with no paid version in existence - the project's philosophy is a web experience that is not for sale, yours included.",
+      "beginnerVerdict": {
+        "level": "start-here",
+        "text": "If you use Firefox, install it, leave the defaults alone, and enjoy the strange silence - the single biggest calm-down per unit of effort on this page."
+      },
+      "sources": [
+        {
+          "label": "uBlock Origin - official GitHub repository",
+          "url": "https://github.com/gorhill/uBlock"
+        }
+      ],
+      "officialDomains": [
+        "github.com"
+      ],
+      "versionHint": "Firefox is the flagship home; Chromium browsers offer the lighter 'uBlock Origin Lite'.",
+      "needs": [
+        "overwhelm",
+        "procrastination"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "firefox-reader-view",
+      "name": "Firefox Reader View",
+      "category": "browser-calm",
+      "platforms": [
+        "firefox"
+      ],
+      "freeStatus": "built-in",
+      "oneLiner": "Firefox strips any article back to clean text at your font size, with nothing blinking, popping, or selling at you.",
+      "whatItDoes": "Tap the reader icon in the address bar (or press Ctrl+Alt+R) and the page collapses to a single readable column: no sidebars, no autoplay video beside your scroll, no cookie banners mid-article. Adjust the font, width, and background to suit your eyes, save articles into reading list, and even have Firefox read them aloud.",
+      "proofFree": "Reader View is built into Firefox by Mozilla at no charge: no extension to trust, no account, no feature paywall - it is simply part of the browser.",
+      "beginnerVerdict": {
+        "level": "start-here",
+        "text": "One click to a calmer page - use it on the one article that defeated you this week, and attach the habit to that site from here on."
+      },
+      "sources": [
+        {
+          "label": "Firefox Reader View - official Mozilla support page",
+          "url": "https://support.mozilla.org/en-US/kb/firefox-reader-view-clutter-free-web-pages"
+        }
+      ],
+      "officialDomains": [
+        "mozilla.org"
+      ],
+      "versionHint": "Firefox on computers and Android; works best on article pages, not web apps.",
+      "needs": [
+        "overwhelm",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "edge-immersive-reader",
+      "name": "Immersive Reader (Microsoft Edge)",
+      "category": "browser-calm",
+      "platforms": [
+        "edge"
+      ],
+      "freeStatus": "built-in",
+      "oneLiner": "Edge's reading mode with school-grade legibility tools: fonts, spacing, grammar color-coding, and aloud-reading on one key.",
+      "whatItDoes": "Press F9 (or click the book icon) on a supported page and Edge re-renders it as clean text with real typography controls - font style, size, spacing - plus focus aids borrowed from classrooms: highlight one, three, or five lines at a time, color-code parts of speech, and hand the reading straight to Read Aloud when eyes tire. Originally built for schools, quietly excellent for tired brains.",
+      "proofFree": "Bundled into Edge by Microsoft at no charge with no account or subscription: it is one of the most feature-complete free reading tools most people have never opened.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Try it on the densest study page you deal with; the line-focus tool alone turns a wall of text into a moving spotlight."
+      },
+      "sources": [
+        {
+          "label": "Microsoft Edge - official site",
+          "url": "https://www.microsoft.com/en-us/edge"
+        }
+      ],
+      "officialDomains": [
+        "microsoft.com"
+      ],
+      "versionHint": "Ships with Edge on Windows and macOS; works on supported article pages (F9).",
+      "needs": [
+        "study",
+        "overwhelm"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "just-read",
+      "name": "Just Read",
+      "category": "browser-calm",
+      "platforms": [
+        "chrome",
+        "edge",
+        "firefox"
+      ],
+      "freeStatus": "open-source",
+      "license": "GNU GPL v3 (free and open source), optional Premium extras",
+      "oneLiner": "Reader mode, but deeply customizable: your fonts, colors, and margins, saved as reusable themes for the sites you fight with most.",
+      "whatItDoes": "One click (or Ctrl+Shift+L) turns a cluttered page into a clean, beautifully typeset article - ads, modals, and navigation gone. Where it goes beyond built-in reader modes is control: theme the output in a visual editor or raw CSS, auto-run it on chosen sites, delete any leftover clutter by hand, and print the calm version. Great for pages reader modes mangle.",
+      "proofFree": "The extension is open source (published on GitHub under GPLv3) and the standard reader features are entirely free in Chrome, Edge, and Firefox with no account. An optional Premium tier adds saving, sharing, and annotations - nothing in the core reader is on trial.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Use your first theme on the specific news site that ambushes you daily, and switch on auto-run for it so the calm version simply appears."
+      },
+      "sources": [
+        {
+          "label": "Just Read - official site",
+          "url": "https://justread.link/"
+        },
+        {
+          "label": "Just Read source code on GitHub",
+          "url": "https://github.com/ZachSaucier/Just-Read"
+        }
+      ],
+      "officialDomains": [
+        "justread.link",
+        "github.com"
+      ],
+      "versionHint": "Chrome, Edge, Firefox; built for article pages, not web apps.",
+      "needs": [
+        "overwhelm",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "momentum",
+      "name": "Momentum",
+      "category": "browser-calm",
+      "platforms": [
+        "chrome",
+        "edge",
+        "firefox"
+      ],
+      "freeStatus": "freeware",
+      "oneLiner": "Turns every new tab into a calm landscape photo and a single question: what is your main focus today?",
+      "whatItDoes": "Wandering into a new tab to distract yourself abruptly deposits you somewhere quiet: a landscape, the time, and one text field asking for today's main focus. Typing one line there re-anchors the day before the next tabs open. The free version also keeps a small to-do list, so the dashboard stays a dashboard and never becomes a project system.",
+      "proofFree": "The basic new-tab dashboard is free in Chrome, Edge, and Firefox and works without an account; the optional Momentum Plus subscription buys photo collections and integrations. The core dashboard - photo, clock, main focus, small list - stays free for good.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "The trick is the one question: answer it honestly each morning and let the new-tab habit quietly become the focus habit."
+      },
+      "sources": [
+        {
+          "label": "Momentum - official site",
+          "url": "https://momentumdash.com/"
+        }
+      ],
+      "officialDomains": [
+        "momentumdash.com"
+      ],
+      "versionHint": "Chrome, Edge, Firefox as a new-tab extension; Plus extras are paid.",
+      "needs": [
+        "procrastination",
+        "overwhelm"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    },
+    {
+      "id": "chrome-tab-groups",
+      "name": "Tab groups (Chrome)",
+      "category": "browser-calm",
+      "platforms": [
+        "chrome"
+      ],
+      "freeStatus": "built-in",
+      "oneLiner": "Color-coded, collapsible tab groups that turn a wall of forty tabs back into three quiet piles.",
+      "whatItDoes": "Right-click any tab, choose 'Add tab to new group', name it and paint it a color; related tabs nest under a labeled dot that collapses out of sight with one click. 'Now', 'Wait', and 'Someday' groups give the browser a three-shelf filing cabinet, and collapsed groups stay collapsed across restarts when saved.",
+      "proofFree": "A built-in Chrome feature with nothing to install and nothing to pay for - the calm-down is already in the browser menu.",
+      "beginnerVerdict": {
+        "level": "easy",
+        "text": "Start with exactly two groups, 'Now' and 'Later', and collapse them at lunch - do not build a tab museum; you are hiding tabs, not curating them."
+      },
+      "sources": [
+        {
+          "label": "Chrome tab groups - Google Chrome Help",
+          "url": "https://support.google.com/chrome"
+        }
+      ],
+      "officialDomains": [
+        "google.com"
+      ],
+      "versionHint": "Chrome on computers and phones; similar tools exist in Edge (vertical tabs).",
+      "needs": [
+        "overwhelm",
+        "study"
+      ],
+      "lastChecked": "2026-11-05",
+      "recheckBy": "2027-02-05"
+    }
+  ]
+}
+  </script>
+  <script>
+/* Free Focus Tools - page logic.
+   Written as a small UMD-ish module so the same file can run in the
+   browser (DOM wiring) and in Node (the build's static card render and
+   the dependency-free unit tests). */
+(function (global) {
+  'use strict';
+
+  var CATEGORY_ORDER = [
+    'distraction-blockers',
+    'focus-timers',
+    'body-doubling',
+    'text-to-speech',
+    'note-capture',
+    'soundscapes',
+    'browser-calm'
+  ];
+
+  var CATEGORY_META = {
+    'distraction-blockers': {
+      label: 'Distraction blockers',
+      note: 'Put a wall between you and the sites and apps that swallow your afternoon - stronger than willpower, and free to try.'
+    },
+    'focus-timers': {
+      label: 'Pomodoro and gentle timers',
+      note: 'Give tasks a visible start line and finish line: classic 25-minute focus rounds, break reminders, and the humble phone timer trick.'
+    },
+    'body-doubling': {
+      label: 'Body doubling and coworking',
+      note: 'Work quietly beside a person (on camera or on a stream) - the company of someone else working makes starting far easier.'
+    },
+    'text-to-speech': {
+      label: 'Text to speech',
+      note: 'Hand long or difficult text to a voice and absorb it by listening - a way around reading walls.'
+    },
+    'note-capture': {
+      label: 'Note capture and brain dumps',
+      note: 'Catch every idea, fear, and to-do in one inbox before it escapes, so nothing has to be held in your head all day.'
+    },
+    'soundscapes': {
+      label: 'Soundscapes and focus sounds',
+      note: 'Rain, brown noise, and soft café murmur to fill empty silence, so sudden sounds stop puncturing your attention.'
+    },
+    'browser-calm': {
+      label: 'Browser calm-downs',
+      note: 'Turn the web itself down: fewer ads and pop-ups, clean article views, and tab chaos quietly filed away.'
+    }
+  };
+
+  var VERDICT_ORDER = ['start-here', 'easy', 'with-practice'];
+
+  var VERDICT_META = {
+    'start-here': { label: 'Start here', className: 'verdict-start' },
+    'easy': { label: 'Easy win', className: 'verdict-easy' },
+    'with-practice': { label: 'Worth practicing', className: 'verdict-practice' }
+  };
+
+  var FREE_META = {
+    'built-in': 'Built in',
+    'open-source': 'Open source',
+    'freeware': 'Freeware'
+  };
+
+  var NEED_LABELS = {
+    'procrastination': 'Procrastination',
+    'overwhelm': 'Overwhelm',
+    'study': 'Study',
+    'chores': 'Chores'
+  };
+
+  var PLATFORM_LABELS = {
+    'windows': 'Windows PC',
+    'macos': 'Mac',
+    'ios': 'iPhone / iPad',
+    'android': 'Android phone',
+    'linux': 'Linux',
+    'chrome': 'Chrome browser',
+    'edge': 'Edge browser',
+    'firefox': 'Firefox browser',
+    'web': 'Any web browser'
+  };
+
+  var NEED_OPTIONS = [{ value: 'all', label: 'Everything' }].concat(
+    Object.keys(NEED_LABELS).map(function (value) {
+      return { value: value, label: NEED_LABELS[value] };
+    })
+  );
+
+  var PLATFORM_OPTIONS = [{ value: 'any', label: 'Any device' }].concat(
+    Object.keys(PLATFORM_LABELS).map(function (value) {
+      return { value: value, label: PLATFORM_LABELS[value] };
+    })
+  );
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&' + 'amp;')
+      .replace(/</g, '&' + 'lt;')
+      .replace(/>/g, '&' + 'gt;')
+      .replace(/"/g, '&' + 'quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function searchFields(tool) {
+    return [
+      tool.name,
+      tool.oneLiner,
+      tool.whatItDoes,
+      tool.proofFree,
+      tool.versionHint,
+      tool.license || ''
+    ].join(' ');
+  }
+
+  function matchesNeed(tool, need) {
+    if (!need || need === 'all') return true;
+    return Array.prototype.indexOf.call(tool.needs || [], need) !== -1;
+  }
+
+  function matchesPlatform(tool, platform) {
+    if (!platform || platform === 'any') return true;
+    return Array.prototype.indexOf.call(tool.platforms || [], platform) !== -1;
+  }
+
+  function matchesQuery(tool, query) {
+    if (!query) return true;
+    return searchFields(tool).toLowerCase().indexOf(String(query).toLowerCase()) !== -1;
+  }
+
+  function filterTools(tools, state) {
+    var need = state && state.need ? state.need : 'all';
+    var platform = state && state.platform ? state.platform : 'any';
+    var query = state && state.q ? state.q : '';
+    return tools.filter(function (tool) {
+      return matchesNeed(tool, need) && matchesPlatform(tool, platform) && matchesQuery(tool, query);
+    });
+  }
+
+  function compareTools(a, b) {
+    var catDiff = CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category);
+    if (catDiff !== 0) return catDiff;
+    var verdictDiff =
+      VERDICT_ORDER.indexOf(a.beginnerVerdict.level) - VERDICT_ORDER.indexOf(b.beginnerVerdict.level);
+    if (verdictDiff !== 0) return verdictDiff;
+    var an = String(a.name).toLowerCase();
+    var bn = String(b.name).toLowerCase();
+    return an < bn ? -1 : an > bn ? 1 : 0;
+  }
+
+  function sortTools(tools) {
+    return tools.slice().sort(compareTools);
+  }
+
+  function platformText(tool) {
+    return (tool.platforms || [])
+      .map(function (platform) {
+        return PLATFORM_LABELS[platform] || platform;
+      })
+      .join(', ');
+  }
+
+  function renderCard(tool) {
+    var verdict = VERDICT_META[tool.beginnerVerdict.level] || VERDICT_META['easy'];
+    var sourcesHtml = (tool.sources || [])
+      .map(function (source) {
+        return (
+          '<a href="' + escapeHtml(source.url) + '" target="_blank" rel="noopener noreferrer">' +
+          escapeHtml(source.label) +
+          '</a>'
+        );
+      })
+      .join('');
+    var stats = [
+      ['Why it is free', tool.proofFree],
+      ['Works on', platformText(tool)],
+      ['Honest limits', tool.versionHint]
+    ];
+    if (tool.license) stats.push(['License', tool.license]);
+    var statsHtml = stats
+      .map(function (pair) {
+        return (
+          '<li><span class="stat-label">' + escapeHtml(pair[0]) + '</span><b>' +
+          escapeHtml(pair[1]) + '</b></li>'
+        );
+      })
+      .join('');
+
+    return (
+      '<article class="card" data-tool-id="' + escapeHtml(tool.id) + '">' +
+      '<header class="card-head">' +
+      '<h3>' + escapeHtml(tool.name) + '</h3>' +
+      '<p class="chips">' +
+      '<span class="chip verdict-chip ' + verdict.className + '">' + escapeHtml(verdict.label) + '</span>' +
+      '<span class="chip">' + escapeHtml(FREE_META[tool.freeStatus] || tool.freeStatus) + '</span>' +
+      '</p>' +
+      '</header>' +
+      '<p class="blurb">' + escapeHtml(tool.oneLiner) + '</p>' +
+      '<p class="does">' + escapeHtml(tool.whatItDoes) + '</p>' +
+      '<p class="verdict ' + verdict.className + '"><b>' + escapeHtml(verdict.label) + '</b><span>' +
+      escapeHtml(tool.beginnerVerdict.text) + '</span></p>' +
+      '<ul class="stats">' + statsHtml + '</ul>' +
+      '<footer class="card-foot">' + sourcesHtml +
+      '<span class="checked">Checked ' + escapeHtml(tool.lastChecked) +
+      ' - recheck due ' + escapeHtml(tool.recheckBy) + '</span>' +
+      '</footer>' +
+      '</article>'
+    );
+  }
+
+  function renderSections(tools) {
+    return CATEGORY_ORDER.map(function (category) {
+      var group = tools.filter(function (tool) {
+        return tool.category === category;
+      });
+      if (!group.length) return '';
+      var meta = CATEGORY_META[category] || { label: category, note: '' };
+      return (
+        '<section class="category" data-category="' + escapeHtml(category) + '">' +
+        '<h2>' + escapeHtml(meta.label) + '</h2>' +
+        '<p class="category-note">' + escapeHtml(meta.note) + '</p>' +
+        '<div class="card-grid">' +
+        group
+          .slice()
+          .sort(compareTools)
+          .map(renderCard)
+          .join('') +
+        '</div>' +
+        '</section>'
+      );
+    }).join('');
+  }
+
+  function renderEmptyState() {
+    return (
+      '<div class="empty-state">' +
+      '<h3>No card matches that combination yet</h3>' +
+      '<p>Choose "Everything", clear the search box, or pick "Any device" - there is almost certainly a free tool here that helps.</p>' +
+      '</div>'
+    );
+  }
+
+  function renderApp(root, tools) {
+    var state = { need: 'all', platform: 'any', q: '' };
+
+    root.innerHTML =
+      '<div class="controls">' +
+      '<fieldset class="control-group need-chips">' +
+      '<legend>I need help with</legend>' +
+      '<div class="chip-row">' +
+      NEED_OPTIONS.map(function (option) {
+        var pressed = option.value === 'all' ? 'true' : 'false';
+        return (
+          '<button type="button" class="chip-btn" data-need="' + escapeHtml(option.value) +
+          '" aria-pressed="' + pressed + '">' + escapeHtml(option.label) + '</button>'
+        );
+      }).join('') +
+      '</div>' +
+      '</fieldset>' +
+      '<div class="control-group">' +
+      '<label for="platform-filter">Device or browser</label>' +
+      '<select id="platform-filter">' +
+      PLATFORM_OPTIONS.map(function (option) {
+        return '<option value="' + escapeHtml(option.value) + '">' + escapeHtml(option.label) + '</option>';
+      }).join('') +
+      '</select>' +
+      '</div>' +
+      '<div class="control-group control-grow">' +
+      '<label for="tool-search">Search</label>' +
+      '<input id="tool-search" type="search" placeholder=\'Try "blocker" or "rain"\' aria-label="Search tools">' +
+      '</div>' +
+      '</div>' +
+      '<p id="result-count" class="result-count" role="status" aria-live="polite"></p>' +
+      '<section id="cards" class="cards-area" aria-label="Tool cards"></section>';
+
+    var chips = Array.prototype.slice.call(root.querySelectorAll('.chip-btn'));
+    var platformSelect = root.querySelector('#platform-filter');
+    var searchInput = root.querySelector('#tool-search');
+    var cardsEl = root.querySelector('#cards');
+    var countEl = root.querySelector('#result-count');
+
+    function draw() {
+      var visible = filterTools(tools, state);
+      countEl.textContent = 'Showing ' + visible.length + ' of ' + tools.length + ' cards';
+      cardsEl.innerHTML = visible.length ? renderSections(visible) : renderEmptyState();
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        state.need = chip.getAttribute('data-need');
+        chips.forEach(function (other) {
+          other.setAttribute('aria-pressed', other === chip ? 'true' : 'false');
+        });
+        draw();
+      });
+    });
+
+    platformSelect.addEventListener('change', function () {
+      state.platform = platformSelect.value;
+      draw();
+    });
+
+    searchInput.addEventListener('input', function () {
+      state.q = searchInput.value;
+      draw();
+    });
+
+    draw();
+  }
+
+  function init() {
+    if (typeof document === 'undefined' || !document.getElementById) return;
+    var root = document.getElementById('app-root');
+    var dataEl = document.getElementById('tools-data');
+    if (!root || !dataEl) return;
+    var data;
+    try {
+      data = JSON.parse(dataEl.textContent);
+    } catch (e) {
+      return;
+    }
+    var tools = Array.isArray(data) ? data : data && data.tools ? data.tools : [];
+    if (!tools.length) return;
+    renderApp(root, tools);
+  }
+
+  var api = {
+    CATEGORY_ORDER: CATEGORY_ORDER,
+    CATEGORY_META: CATEGORY_META,
+    VERDICT_ORDER: VERDICT_ORDER,
+    VERDICT_META: VERDICT_META,
+    FREE_META: FREE_META,
+    NEED_LABELS: NEED_LABELS,
+    NEED_OPTIONS: NEED_OPTIONS,
+    PLATFORM_LABELS: PLATFORM_LABELS,
+    PLATFORM_OPTIONS: PLATFORM_OPTIONS,
+    escapeHtml: escapeHtml,
+    searchFields: searchFields,
+    matchesNeed: matchesNeed,
+    matchesPlatform: matchesPlatform,
+    matchesQuery: matchesQuery,
+    filterTools: filterTools,
+    sortTools: sortTools,
+    compareTools: compareTools,
+    platformText: platformText,
+    renderCard: renderCard,
+    renderSections: renderSections,
+    renderEmptyState: renderEmptyState,
+    renderApp: renderApp,
+    init: init
+  };
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = api;
+  } else {
+    global.FreeFocusApp = api;
+  }
+
+  if (typeof document !== 'undefined' && document.getElementById) {
+    init();
+  }
+})(typeof window !== 'undefined' ? window : globalThis);
+
+  </script>
+</body>
+</html>
